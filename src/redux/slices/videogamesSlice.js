@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const videogamesSlice = createSlice({
   name: 'videogames',
   initialState: {
     all: [],
-    details: {}
-  }
+    details: {},
+  },
 });
 
 export default videogamesSlice.reducer;
