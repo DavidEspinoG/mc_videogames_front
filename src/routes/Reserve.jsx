@@ -1,7 +1,5 @@
-const Reserve = () => {
-  return (
-    <h1>Reserve</h1>
-  )
-};
+const Reserve = () => (
+  <h1>Reserve</h1>
+);
 
 export default Reserve;
