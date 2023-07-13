@@ -31,10 +31,6 @@
   align-items: center;
 }
 
-.login-form {
-  color: white;
-}
-
 .subtitle {
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -49,6 +45,7 @@
 }
 
 .login-form {
+  color: white;
   height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
