@@ -34,6 +34,7 @@
 .subtitle {
   font-weight: 700;
   letter-spacing: 1.5px;
+  margin: 0;
 }
 
 .green-line {
@@ -60,6 +61,10 @@
   border: 1px solid white;
   background-color: var(--green);
   width: 270px;
+}
+
+.input::placeholder {
+  color: white;
 }
 
 .input:focus {
@@ -89,4 +94,14 @@
 
 .login-submit-button:hover {
   transform: scale(1.1);
+}
+
+@media (min-width: 768px) {
+  .login-inputs {
+    flex-direction: row;
+  }
+
+  .input {
+    width: 200px;
+  }
 }
