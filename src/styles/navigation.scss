@@ -1,5 +1,4 @@
-// @use "main" as var;
-
+// Mobile and medium breakpoint styles
 @media (max-width: 768px) {
     .navbar {
         padding: 0;
@@ -28,7 +27,6 @@
                         background-color: rgba(0, 0, 0, 0.2);
                     }
                 }
-
             }
 
             .navbar-collapse {
@@ -59,6 +57,7 @@
     }
 }
 
+// Desktop breakpoint styles
 @media (min-width: 769px) {
     .navbar {
         min-height: 100vh;
