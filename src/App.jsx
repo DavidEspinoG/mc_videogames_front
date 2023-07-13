@@ -1,6 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import AddVideogame from './routes/AddVideogame';
 import DeleteVideogame from './routes/DeleteVideogame';
+import Details from './routes/Details';
 import Home from './routes/Home';
 import Login from './routes/Login';
 import MyReservations from './routes/MyReservations';
@@ -12,6 +13,7 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/reserve" element={<Reserve />} />
+      <Route path="/details/:id" element={<Details />} />
       <Route path="/myReservations" element={<MyReservations />} />
       <Route path="/add" element={<AddVideogame />} />
       <Route path="/delete" element={<DeleteVideogame />} />
