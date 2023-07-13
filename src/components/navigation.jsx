@@ -8,7 +8,7 @@ const Navigation = () => {
 
   //   This isAdmin state will be fetched from Redux store but for now we will use useState
   //   const isAdmin = useSelector((state) => state.user.isAdmin);
-  const isAdmin = true;
+  const isAdmin = false;
 
   return (
     <nav className="navbar">
