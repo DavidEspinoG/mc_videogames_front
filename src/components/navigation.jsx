@@ -4,11 +4,21 @@ import logo from '../assets/logo.webp';
 import '../styles/navigation.scss';
 
 const Navigation = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   //   This isAdmin state will be fetched from Redux store but for now we will use useState
   //   const isAdmin = useSelector((state) => state.user.isAdmin);
   const isAdmin = false;
+
+  const closeNavbar = () => {
+    setOpen(false);
+  };
+
+  const handleNavLinkClick = () => {
+    if (open) {
+      closeNavbar();
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -22,24 +32,24 @@ const Navigation = () => {
               <img src={logo} alt="logo" />
             </Link>
           </div>
-          <div className={`collapse navbar-collapse ${open ? 'show' : ''}`}>
+          <div className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}>
             <ul className="navbar-nav">
               <li>
-                <NavLink className="nav-link" to="/" end>Home</NavLink>
+                <NavLink className="nav-link" to="/" end onClick={handleNavLinkClick}>Home</NavLink>
               </li>
               <li>
-                <NavLink className="nav-link" to="/reserve">Reserve</NavLink>
+                <NavLink className="nav-link" to="/reserve" onClick={handleNavLinkClick}>Reserve</NavLink>
               </li>
               <li>
-                <NavLink className="nav-link" to="/myReservations">My Reservations</NavLink>
+                <NavLink className="nav-link" to="/myReservations" onClick={handleNavLinkClick}>My Reservations</NavLink>
               </li>
               {isAdmin && (
                 <>
                   <li>
-                    <NavLink className="nav-link" to="/add">Add</NavLink>
+                    <NavLink className="nav-link" to="/add" onClick={handleNavLinkClick}>Add</NavLink>
                   </li>
                   <li>
-                    <NavLink className="nav-link" to="/delete">Delete</NavLink>
+                    <NavLink className="nav-link" to="/delete" onClick={handleNavLinkClick}>Delete</NavLink>
                   </li>
                 </>
               )}
