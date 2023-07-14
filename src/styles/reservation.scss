@@ -1,0 +1,17 @@
+.rounded {
+  border-radius: 50% !important;
+}
+
+.square-ratio {
+  aspect-ratio: 1 / 1 !important;
+}
+
+.d-webkit-box {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.clamp-3 {
+  -webkit-line-clamp: 3;
+}
