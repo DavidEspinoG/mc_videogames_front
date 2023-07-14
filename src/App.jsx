@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Navigation from './components/navigation';
+import Navigation from './components/Navigation';
 import AddVideogame from './routes/AddVideogame';
 import DeleteVideogame from './routes/DeleteVideogame';
 import Details from './routes/Details';
@@ -15,7 +15,7 @@ const App = () => {
   return (
     <>
       {location.pathname !== '/login' && location.pathname !== '/reserve' ? <Navigation /> : ''}
-      <main className="main"> 
+      <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/reserve" element={<Reserve />} />

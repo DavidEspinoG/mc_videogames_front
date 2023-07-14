@@ -24,9 +24,10 @@ const reservations = [
     id: 27,
     days: 10,
     total_price: 10.0,
+    created_at: '2023/07/14',
     videogame: {
       id: 5,
-      name: 'Fotnite',
+      name: 'Fortnite',
       photo: 'https://cdn2.unrealengine.com/25br-s25-egs-launcher-pdp-2560x1440-alt-logo-2560x1440-130a7d39cc26.jpg',
       description: "Grab all of your friends and drop into Epic Games' Fortnite, a massive 100-player face-off that combines looting, crafting, shootouts and chaos. The result is a completely unpredictable competitive online experience that gets bigger and even wilder with every new season.",
       price_per_day: 1.0,
@@ -36,6 +37,7 @@ const reservations = [
     id: 32,
     days: 100,
     total_price: 10.0,
+    created_at: '2023/07/14',
     videogame: {
       id: 27,
       name: 'Tetris',
@@ -51,8 +53,8 @@ const MyReservations = () => {
   // const reservations = useSelector(selectReservations);
   const error = useSelector(selectReservationsError);
   console.log('MyReservations error', error);
-  const isDesktop = useMediaQuery('(min-width: 768px)');
-  const isLargeDesktop = useMediaQuery('(min-width: 992px)');
+  const isDesktop = useMediaQuery('(min-width: 769px)');
+  const isLargeDesktop = useMediaQuery('(min-width: 1201px)');
   const [page, setPage] = useState(0);
   let itemsPerPage = 1;
   if (isLargeDesktop) {
@@ -78,8 +80,8 @@ const MyReservations = () => {
   const disabledRight = page + itemsPerPage === reservations.length;
 
   return (
-    <main className="text-center min-vh-100 pt-5">
-      <h1 className="fw-bold mb-5">MY RESERVATIONS</h1>
+    <div className="h-100 text-center d-flex flex-column justify-content-center">
+      <h1 className="fw-bolder mb-5 pb-4 h2">MY RESERVATIONS</h1>
       <Carousel
         items={slicedItems}
         page={page}
@@ -87,7 +89,7 @@ const MyReservations = () => {
         disabledLeft={disabledLeft}
         disabledRight={disabledRight}
       />
-    </main>
+    </div>
   );
 };
 

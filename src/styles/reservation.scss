@@ -2,10 +2,6 @@
   border-radius: 50% !important;
 }
 
-.square-ratio {
-  aspect-ratio: 1 / 1 !important;
-}
-
 .d-webkit-box {
   overflow: hidden;
   display: -webkit-box;
@@ -14,4 +10,12 @@
 
 .clamp-3 {
   -webkit-line-clamp: 3;
+}
+
+.vh-25 {
+  height: 25vh !important;
+}
+
+.fw-bolder {
+  font-weight: 900 !important;
 }

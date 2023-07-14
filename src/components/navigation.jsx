@@ -29,7 +29,7 @@ const Navigation = () => {
               <span className="navbar-toggler-icon" />
             </button>
             <Link className="nav-logo" to="/">
-              <img src={logo} alt="logo" />
+              <img className="logo" src={logo} alt="logo" />
             </Link>
           </div>
           <div className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}>

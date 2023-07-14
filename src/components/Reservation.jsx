@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import '../styles/reservation.scss';
+import formatToCurrency from '../utils/formatToCurrency';
 
 const Reservation = ({ data }) => {
   const {
@@ -9,26 +10,28 @@ const Reservation = ({ data }) => {
 
   return (
     <article className="col">
-      <div className="px-5 pb-4">
-        <img className="img-fluid square-ratio rounded" src={photo} alt={name} />
+      <div className="vh-25 mb-4">
+        <img className="h-100 img-fluid rounded" src={photo} alt={name} />
       </div>
-      <h3 className="h5 mb-4">{name}</h3>
-      <p className="mb-0">
-        Starting date:
-        {' '}
-        {createdAt}
-      </p>
-      <p className="mb-0">
-        Days:
-        {' '}
-        {days}
-      </p>
-      <p className="mb-0">
-        Total price:
-        {' '}
-        {totalPrice}
-      </p>
-      <p className="d-webkit-box clamp-3">{description}</p>
+      <h3 className="h6 fw-bolder text-uppercase mb-4">{name}</h3>
+      <div className="text-muted small">
+        <p className="mb-0">
+          <span className="fw-bold">Starting date:</span>
+          {' '}
+          {createdAt}
+        </p>
+        <p className="mb-0">
+          <span className="fw-bold">Days:</span>
+          {' '}
+          {days}
+        </p>
+        <p className="mb-0">
+          <span className="fw-bold">Total price:</span>
+          {' '}
+          {formatToCurrency(totalPrice)}
+        </p>
+        <p className="d-webkit-box clamp-3">{description}</p>
+      </div>
     </article>
   );
 };
