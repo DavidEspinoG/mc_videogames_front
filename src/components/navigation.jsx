@@ -25,26 +25,26 @@ const Navigation = () => {
           <div className={`collapse navbar-collapse ${open ? 'show' : ''}`}>
             <ul className="navbar-nav">
               <li>
-                <NavLink className="nav-link" activeClassName="active" to="/" end>Home</NavLink>
+                <NavLink className="nav-link" to="/" end>Home</NavLink>
               </li>
               <li>
-                <NavLink className="nav-link" activeClassName="active" to="/reserve">Reserve</NavLink>
+                <NavLink className="nav-link" to="/reserve">Reserve</NavLink>
               </li>
               <li>
-                <NavLink className="nav-link" activeClassName="active" to="/myReservations">My Reservations</NavLink>
+                <NavLink className="nav-link" to="/myReservations">My Reservations</NavLink>
               </li>
               {isAdmin && (
                 <>
                   <li>
-                    <NavLink className="nav-link" activeClassName="active" to="/add">Add</NavLink>
+                    <NavLink className="nav-link" to="/add">Add</NavLink>
                   </li>
                   <li>
-                    <NavLink className="nav-link" activeClassName="active" to="/delete">Delete</NavLink>
+                    <NavLink className="nav-link" to="/delete">Delete</NavLink>
                   </li>
                 </>
               )}
               <li>
-                <NavLink className="nav-link" activeClassName="active" to="/login">Login</NavLink>
+                <NavLink className="nav-link" to="/login">Login</NavLink>
               </li>
             </ul>
           </div>
