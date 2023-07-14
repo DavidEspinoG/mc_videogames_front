@@ -1,12 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
-import videogamesSliceReducer from './slices/videogamesSlice';
+import reservationsSliceReducer from './slices/reservationsSlice';
 import userSliceReducer from './slices/userSlice';
+import videogamesSliceReducer from './slices/videogamesSlice';
 
 const store = configureStore({
   reducer: {
     videogames: videogamesSliceReducer,
     user: userSliceReducer,
+    reservations: reservationsSliceReducer,
   },
 });
+
+export const selectJWT = (state) => state.user.jwt;
+export const selectReservations = (state) => state.reservations.reservations;
+export const selectReservationsError = (state) => state.reservations.error;
 
 export default store;
