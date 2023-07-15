@@ -53,8 +53,8 @@ const MyReservations = () => {
   // const reservations = useSelector(selectReservations);
   const error = useSelector(selectReservationsError);
   console.log('MyReservations error', error);
-  const isDesktop = useMediaQuery('(min-width: 769px)');
-  const isLargeDesktop = useMediaQuery('(min-width: 1201px)');
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+  const isLargeDesktop = useMediaQuery('(min-width: 1200px)');
   const [page, setPage] = useState(0);
   let itemsPerPage = 1;
   if (isLargeDesktop) {
