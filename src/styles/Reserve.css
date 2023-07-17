@@ -1,0 +1,11 @@
+.reserve-select {
+  appearance: none;
+  color: white;
+  font-family: var(--main-font);
+  font-weight: 300;
+  padding: 20px;
+  border-radius: 30px;
+  border: 1px solid white;
+  background-color: var(--green);
+  width: 270px;
+}
