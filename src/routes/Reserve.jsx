@@ -1,6 +1,7 @@
 import { BiArrowBack } from 'react-icons/bi';
-import '../styles/Login.scss';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Login.scss';
+
 const Reserve = () => {
   const navigate = useNavigate();
   return (
@@ -22,7 +23,7 @@ const Reserve = () => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default Reserve;
