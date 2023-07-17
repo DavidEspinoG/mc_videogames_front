@@ -13,7 +13,7 @@ const App = () => {
   const location = useLocation();
 
   return (
-    <div>
+    <>
       {location.pathname !== '/login' && <Navigation />}
       <main className="main">
         <Routes>
@@ -27,7 +27,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-    </div>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 const Reserve = () => (
-  <h1>Reservee</h1>
+  <h1>Reserve</h1>
 );
 
 export default Reserve;
