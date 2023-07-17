@@ -60,7 +60,7 @@ const Reserve = () => {
           </div>
           {days ? (
             <p>
-              * Your rent will last 
+              * Your rent will last
               {' '}
               {days}
               {' '}
