@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <>
-      {location.pathname !== '/login' && location.pathname !== '/reserve' ? <Navigation /> : ''}
+      {location.pathname !== '/login' && <Navigation />}
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
