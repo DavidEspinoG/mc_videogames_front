@@ -33,7 +33,7 @@ export const getVideogames = createAsyncThunk(
 const videogamesSlice = createSlice({
   name: 'videogames',
   initialState: {
-    videogames: [],
+    all: [],
     details: {
       id: 1,
       name: 'Super Mario Bros',
@@ -54,7 +54,7 @@ const videogamesSlice = createSlice({
       state.details = action.payload;
     },
     [getVideogames.fulfilled]: (state, { payload }) => {
-      state.videogames = payload;
+      state.all = payload;
       state.error = null;
     },
     [getVideogames.rejected]: (state, { payload }) => {

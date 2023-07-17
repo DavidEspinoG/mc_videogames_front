@@ -13,7 +13,7 @@ const store = configureStore({
 
 export const selectReservations = (state) => state.reservations.reservations;
 export const selectReservationsError = (state) => state.reservations.error;
-export const selectVideogames = (state) => state.videogames.videogames;
+export const selectVideogames = (state) => state.videogames.all;
 export const selectVideogamesError = (state) => state.videogames.error;
 
 export default store;
