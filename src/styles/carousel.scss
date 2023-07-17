@@ -1,0 +1,29 @@
+.btn-carousel {
+  background-color: var(--green);
+  color: white;
+  display: flex;
+  border: none;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.btn-carousel:disabled {
+  background-color: var(--gray);
+}
+
+.btn-carousel:hover:not(:disabled) {
+  background-color: #80a20c;
+}
+
+.btn-left {
+  padding-left: 1.6rem !important;
+  border-radius: 0% 45% 45% 0%;
+}
+
+.btn-right {
+  padding-right: 1.6rem !important;
+  border-radius: 45% 0% 0% 45%;
+}
