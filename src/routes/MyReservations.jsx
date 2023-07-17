@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'usehooks-ts';
 import Carousel from '../components/Carousel';
 import { getReservations } from '../redux/slices/reservationsSlice';
-import { selectReservationsError } from '../redux/store';
-// import { selectReservations, selectReservationsError } from '../redux/store';
 
+// TODO: Remove hard-coded data when the reservations endpoint is available
 const reservations = [
   {
     id: 10,
@@ -50,9 +49,9 @@ const reservations = [
 
 const MyReservations = () => {
   const dispatch = useDispatch();
+  // TODO: Enable getting data from Redux when the reservations endpoint is available
   // const reservations = useSelector(selectReservations);
-  const error = useSelector(selectReservationsError);
-  console.log('MyReservations error', error);
+  // const error = useSelector(selectReservationsError);
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const isLargeDesktop = useMediaQuery('(min-width: 1200px)');
   const [page, setPage] = useState(0);
@@ -67,6 +66,7 @@ const MyReservations = () => {
     dispatch(getReservations());
   }, [dispatch]);
 
+  // TODO: Enable error handling when the reservations endpoint is available
   // if (error) {
   //   return <h1>{error}</h1>;
   // }

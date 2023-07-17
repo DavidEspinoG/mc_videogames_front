@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Navigation from './components/Navigation';
+import Navigation from './components/navigation';
 import AddVideogame from './routes/AddVideogame';
 import DeleteVideogame from './routes/DeleteVideogame';
 import Details from './routes/Details';
