@@ -14,14 +14,15 @@
 // Medium breakpoint: 768px;
 // Desktop breakpoint: 1200px;
 
-@media (min-width: 769px) {
-  #root {
-    display: flex;
-  }
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: var(--main-font);
+}
 
-  .main {
-    flex: 1;
-  }
+.main {
+  flex: 1;
 }
 
 body {
@@ -34,4 +35,10 @@ a {
 
 a:hover {
   color: inherit;
+}
+
+@media (min-width: 769px) {
+  #root {
+    flex-direction: row;
+  }
 }
