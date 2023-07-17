@@ -1,5 +1,13 @@
+.vh-25 {
+  height: 25vh !important;
+}
+
 .rounded {
   border-radius: 50% !important;
+}
+
+.fw-bolder {
+  font-weight: 900 !important;
 }
 
 .d-webkit-box {
@@ -12,10 +20,6 @@
   -webkit-line-clamp: 3;
 }
 
-.vh-25 {
-  height: 25vh !important;
-}
-
-.fw-bolder {
-  font-weight: 900 !important;
+.text-muted {
+  color: #b2b2b2 !important;
 }

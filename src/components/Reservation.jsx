@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../styles/reservation.scss';
+import '../styles/carousel-item.scss';
 import formatToCurrency from '../utils/formatToCurrency';
 
 const Reservation = ({ data }) => {

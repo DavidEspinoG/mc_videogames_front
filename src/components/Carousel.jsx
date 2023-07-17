@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
 import '../styles/carousel.scss';
 import Reservation from './Reservation';
+import Videogame from './Videogame';
 
 const Carousel = ({
   items, setPage, disabledLeft, disabledRight,
@@ -24,6 +25,10 @@ const Carousel = ({
       <div className="col row mx-0 row-cols-1 row-cols-md-2 row-cols-xl-3">
         {items.map((item) => {
           const { id } = item;
+
+          if (item?.name) {
+            return <Videogame key={id} data={item} />;
+          }
 
           return (
             <Reservation key={id} data={item} />
