@@ -6,24 +6,24 @@ import '../styles/reserve.css';
 const mockData = [
   {
     id: 1,
-    name: 'Zelda: Breath of the wild', 
+    name: 'Zelda: Breath of the wild',
     photo: 'http://fakeurl.com',
-    description: 'A very interesting game', 
-    price_per_day: 20
+    description: 'A very interesting game',
+    price_per_day: 20,
   },
   {
     id: 2,
-    name: 'Hogwarts Legacy', 
+    name: 'Hogwarts Legacy',
     photo: 'http://fakeurl.com',
-    description: 'A very interesting game', 
-    price_per_day: 30
+    description: 'A very interesting game',
+    price_per_day: 30,
   },
   {
     id: 3,
-    name: 'God of war', 
+    name: 'God of war',
     photo: 'http://fakeurl.com',
-    description: 'A very interesting game', 
-    price_per_day: 35
+    description: 'A very interesting game',
+    price_per_day: 35,
   },
 ];
 const Reserve = () => {
@@ -38,13 +38,12 @@ const Reserve = () => {
           <h3 className="subtitle text-center">RESERVE A VIDEOGAME</h3>
           <hr className="green-line" />
           <div className="login-inputs">
-            <select className='reserve-select'>
-              {mockData.map(element => (
-                <option key={element.id} value={element.id}>{element.name}</option>))
-              }
+            <select className="reserve-select">
+              {mockData.map((element) => (
+                <option key={element.id} value={element.id}>{element.name}</option>))}
             </select>
-            <input placeholder="Username" value={'current user name'} disabled={true} className="input" />
-            <input type='date' className='input' />
+            <input placeholder="Username" value="current user name" disabled className="input" />
+            <input type="date" className="input" />
             <button type="button" className="login-submit-button">
               Submit
             </button>
@@ -52,7 +51,7 @@ const Reserve = () => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default Reserve;
