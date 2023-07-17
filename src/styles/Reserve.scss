@@ -9,3 +9,19 @@
   background-color: var(--green);
   width: 270px;
 }
+
+.reserve-main-container {
+  background-image: url('../assets/green_background.png');
+  background-position: center;
+  background-size: cover;
+  
+  height: 100vh;
+  font-family: var(--main-font);
+}
+
+
+@media(min-width: 768px) {
+  .reserve-main-container {
+    width: calc(100vw - 240px);
+  }
+}
