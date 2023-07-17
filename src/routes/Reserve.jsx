@@ -52,7 +52,7 @@ const Reserve = () => {
               type="button"
               className="login-submit-button"
               onClick={() => {
-                navigate('/myReservations')
+                navigate('/myReservations');
               }}
             >
               Submit
