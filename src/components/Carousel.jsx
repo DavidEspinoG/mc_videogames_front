@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
 import '../styles/carousel.scss';
 import Reservation from './Reservation';
-import VideoGame from './VideoGame';
+import Videogame from './Videogame';
 
 const Carousel = ({
   items, setPage, disabledLeft, disabledRight,
@@ -27,7 +27,7 @@ const Carousel = ({
           const { id } = item;
 
           if (item?.name) {
-            return <VideoGame key={id} data={item} />;
+            return <Videogame key={id} data={item} />;
           }
 
           return (
