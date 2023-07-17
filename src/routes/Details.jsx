@@ -2,18 +2,19 @@ import { useEffect } from 'react';
 import { BiGame } from 'react-icons/bi';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import colorWheel from '../assets/color_wheel.png';
 import '../styles/details.scss';
 
 const Details = () => {
   // const dispatch = useDispatch();
+  const { id } = useParams();
   const {
-    id, name, photo, description, pricePerDay,
+    name, photo, description, pricePerDay,
   } = useSelector((state) => state.videogames.details);
 
   useEffect(() => {
-    // dispatch(getDetails(1));
+    // dispatch(getDetails(id));
   }, []);
 
   return (
@@ -65,7 +66,7 @@ const Details = () => {
           <BiGame className="icon" />
           <img src={colorWheel} alt="color wheel" className="color-wheel" />
         </div>
-        <Link to={`/reserve/${id}`} className="reserve-button">
+        <Link to={`/reserve/?videogameId=${id}`} className="reserve-button">
           Reserve
           <MdKeyboardArrowRight className="icon" />
         </Link>
