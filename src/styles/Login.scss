@@ -81,6 +81,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  margin-bottom: 15px;
 }
 
 .text-center {
@@ -100,7 +101,7 @@
   transform: scale(1.1);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 956px) {
   .login-inputs {
     flex-direction: row;
   }
