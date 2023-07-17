@@ -35,16 +35,11 @@ const Reserve = () => {
           <BiArrowBack className="back-icon" onClick={() => navigate('/')} />
         </div>
         <div className="login-form">
-          <h3 className="subtitle text-center">RESERVE A VIDEOGAME</h3>
+          <h3 className="subtitle text-center">LOGIN</h3>
           <hr className="green-line" />
           <div className="login-inputs">
-            <select className='reserve-select'>
-              {mockData.map(element => (
-                <option key={element.id} value={element.id}>{element.name}</option>))
-              }
-            </select>
-            <input placeholder="Username" value={'current user name'} disabled={true} className="input" />
-            <input type='date' className='input' />
+            <input placeholder="Email" className="input" />
+            <input placeholder="Password" className="input" />
             <button type="button" className="login-submit-button">
               Submit
             </button>

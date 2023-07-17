@@ -10,6 +10,20 @@
   --title-font: 'Tsukimi Rounded', sans-serif;
 }
 
+// Mobile breakpoint: 575px;
+// Medium breakpoint: 768px;
+// Desktop breakpoint: 1200px;
+
+@media (min-width: 769px) {
+  #root {
+    display: flex;
+  }
+
+  .main {
+    flex: 1;
+  }
+}
+
 a {
   color: inherit;
 }
