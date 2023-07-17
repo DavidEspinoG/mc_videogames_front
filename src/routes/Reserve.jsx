@@ -1,4 +1,3 @@
-import { BiArrowBack } from 'react-icons/bi';
 import '../styles/Login.scss';
 import { useNavigate } from 'react-router-dom';
 import '../styles/reserve.scss';
@@ -24,9 +23,6 @@ const Reserve = () => {
   return (
     <div className="reserve-main-container">
       <div className="container">
-        <div className="login-header">
-          <BiArrowBack className="back-icon" onClick={() => navigate('/')} />
-        </div>
         <div className="login-form">
           <h3 className="subtitle text-center">RESERVE A VIDEOGAME </h3>
           <hr className="green-line" />

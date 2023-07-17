@@ -10,6 +10,7 @@
     "eslint:fix": "npx eslint \"**/*.{js,jsx}\" --fix",
     "stylelint": "npx stylelint \"**/*.{css,scss}\"",
     "stylelint:fix": "npx stylelint \"**/*.{css,scss}\" --fix",
+    "fix": "npx eslint \"**/*.{js,jsx}\" --fix && npx stylelint \"**/*.{css,scss}\" --fix",
     "preview": "vite preview"
   },
   "dependencies": {
