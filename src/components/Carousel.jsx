@@ -5,7 +5,7 @@ import Reservation from './Reservation';
 import Videogame from './Videogame';
 
 const Carousel = ({
-  items, setPage, disabledLeft, disabledRight,
+  items, setPage, disabledLeft, disabledRight, deleteButton,
 }) => {
   const handleLeftClick = () => {
     setPage((page) => page - 1);
@@ -27,11 +27,11 @@ const Carousel = ({
           const { id } = item;
 
           if (item?.name) {
-            return <Videogame key={id} data={item} />;
+            return <Videogame key={id} data={item} deleteButton={deleteButton} />;
           }
 
           return (
-            <Reservation key={id} data={item} />
+            <Reservation key={id} data={item} deleteButton={deleteButton} />
           );
         })}
       </div>
@@ -49,6 +49,11 @@ Carousel.propTypes = {
   setPage: PropTypes.func.isRequired,
   disabledLeft: PropTypes.bool.isRequired,
   disabledRight: PropTypes.bool.isRequired,
+  deleteButton: PropTypes.bool,
+};
+
+Carousel.defaultProps = {
+  deleteButton: false,
 };
 
 export default Carousel;

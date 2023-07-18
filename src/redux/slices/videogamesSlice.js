@@ -1,14 +1,26 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import BASE_URL from '../constants';
-// TODO: Update to deployment URL
-// const BASE_URL = 'http://localhost:3001';
 
 const getDetails = createAsyncThunk('videogames/getDetails', async (id) => {
   try {
     const response = await axios.get(`${BASE_URL}/videogames/${id}`);
     const data = await response.json();
     return data;
+  } catch (error) {
+    return error;
+  }
+});
+
+const deleteVideogame = createAsyncThunk('videogames/delete', async (id, { getState }) => {
+  try {
+    const state = getState();
+    const response = await axios.delete(`${BASE_URL}/videogames/${id}`, {
+      headers: {
+        Authorization: state.user.jwt,
+      },
+    });
+    return response.data;
   } catch (error) {
     return error;
   }
@@ -63,6 +75,7 @@ const videogamesSlice = createSlice({
       description: 'Super Mario Bros is a platform game developed and published by Nintendo. The successor to the 1983 arcade game Mario Bros. and the first game in the Super Mario series, it was first released in 1985 for the Famicom in Japan.',
       pricePerDay: 5,
     },
+    message: null,
     error: null,
   },
   extraReducers: {
@@ -82,8 +95,15 @@ const videogamesSlice = createSlice({
     [getVideogames.rejected]: (state, { payload }) => {
       state.error = payload;
     },
+    [deleteVideogame.fulfilled]: (state, { payload }) => {
+      state.message = payload.message;
+      state.error = null;
+    },
+    [deleteVideogame.rejected]: (state, { payload }) => {
+      state.error = payload;
+    },
   },
 });
 
 export default videogamesSlice.reducer;
-export { getDetails };
+export { deleteVideogame, getDetails };

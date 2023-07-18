@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'usehooks-ts';
 import Carousel from '../components/Carousel';
 import { getVideogames } from '../redux/slices/videogamesSlice';
@@ -7,7 +8,7 @@ import { getVideogames } from '../redux/slices/videogamesSlice';
 // TODO: Remove hard-coded data when the reservations endpoint is available
 const videogames = [
   {
-    id: 2,
+    id: 9,
     name: 'Minecraft',
     photo: 'https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png',
     description: 'Minecraft is a 2011 sandbox game developed by Mojang Studios. The game was created by Markus "Notch" Persson in the Java programming language. Following several early private testing versions, it was first made public in May 2009 before being fully released in November 2011, with Notch stepping down and Jens "Jeb" Bergensten taking over development. Minecraft is the best-selling video game in history, with over 238 million copies sold and nearly 140 million monthly active players as of 2021 and has been ported to several platforms.',
@@ -29,7 +30,7 @@ const videogames = [
   },
 ];
 
-const Home = () => {
+const Home = ({ deleteButton }) => {
   const dispatch = useDispatch();
   // TODO: Enable getting data from Redux when the reservations endpoint is available
   // const videogames = useSelector(selectVideogames);
@@ -37,6 +38,7 @@ const Home = () => {
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const isLargeDesktop = useMediaQuery('(min-width: 1200px)');
   const [page, setPage] = useState(0);
+  const message = useSelector((state) => state.videogames.message);
   let itemsPerPage = 1;
   if (isLargeDesktop) {
     itemsPerPage = 3;
@@ -71,9 +73,27 @@ const Home = () => {
         setPage={setPage}
         disabledLeft={disabledLeft}
         disabledRight={disabledRight}
+        deleteButton={deleteButton}
       />
+      { message && (
+        <small className="mt-5 fw-bold">
+          *
+          {' '}
+          {message}
+          {' '}
+          *
+        </small>
+      )}
     </div>
   );
+};
+
+Home.propTypes = {
+  deleteButton: PropTypes.bool,
+};
+
+Home.defaultProps = {
+  deleteButton: false,
 };
 
 export default Home;

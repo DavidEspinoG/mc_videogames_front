@@ -1,5 +1,7 @@
+import Home from './Home';
+
 const DeleteVideogame = () => (
-  <h1>Delete videogame</h1>
+  <Home deleteButton />
 );
 
 export default DeleteVideogame;
