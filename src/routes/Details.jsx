@@ -15,7 +15,7 @@ const Details = () => {
 
   useEffect(() => {
     dispatch(getDetails(id));
-  }, []);
+  }, [dispatch, id]);
 
   if (!videogameDetails) {
     return <h1>Loading...</h1>;
