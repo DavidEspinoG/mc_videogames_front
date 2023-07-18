@@ -7,7 +7,7 @@ const NotFound = () => {
   useEffect(() => {
     setTimeout(() => {
       navigate('/');
-    }, 1100000000);
+    }, 3000);
   });
   return (
     <div className="login-main-container">
