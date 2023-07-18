@@ -10,10 +10,7 @@ const Navigation = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const user = useSelector(selectUser);
-
-  //   This isAdmin state will be fetched from Redux store but for now we will use useState
-  //   const isAdmin = useSelector((state) => state.user.isAdmin);
-  const isAdmin = false;
+  const { admin: isAdmin } = user ?? {};
 
   const closeNavbar = () => {
     setOpen(false);
@@ -55,12 +52,16 @@ const Navigation = () => {
               <li>
                 <NavLink className="nav-link" to="/" end onClick={handleNavLinkClick}>Home</NavLink>
               </li>
-              <li>
-                <NavLink className="nav-link" to="/reserve" onClick={handleNavLinkClick}>Reserve</NavLink>
-              </li>
-              <li>
-                <NavLink className="nav-link" to="/myReservations" onClick={handleNavLinkClick}>My Reservations</NavLink>
-              </li>
+              { user && (
+                <>
+                  <li>
+                    <NavLink className="nav-link" to="/reserve" onClick={handleNavLinkClick}>Reserve</NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="nav-link" to="/myReservations" onClick={handleNavLinkClick}>My Reservations</NavLink>
+                  </li>
+                </>
+              )}
               {isAdmin && (
                 <>
                   <li>
@@ -88,7 +89,6 @@ const Navigation = () => {
         </div>
       </div>
     </nav>
-
   );
 };
 

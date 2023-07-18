@@ -13,8 +13,6 @@ const Login = () => {
   const error = useSelector(selectUserError);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // console.log(user);
-  // console.log(error);
 
   useEffect(() => {
     if (user) {
@@ -43,6 +41,7 @@ const Login = () => {
               Submit
             </button>
           </form>
+          {error && (
           <small>
             *
             {' '}
@@ -50,6 +49,7 @@ const Login = () => {
             {' '}
             *
           </small>
+          )}
         </div>
       </div>
     </div>
