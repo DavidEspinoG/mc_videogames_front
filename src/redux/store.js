@@ -11,6 +11,8 @@ const store = configureStore({
   },
 });
 
+export const selectUser = (state) => state.user.user;
+export const selectUserError = (state) => state.user.error;
 export const selectReservations = (state) => state.reservations.reservations;
 export const selectReservationsError = (state) => state.reservations.error;
 export const selectVideogames = (state) => state.videogames.all;
