@@ -8,7 +8,7 @@ export const login = createAsyncThunk(
     const url = `${BASE_URL}/users/sign_in`;
     const body = { user: { email, password } };
     const response = await axios.post(url, body).catch((error) => error);
-    console.log([response.data, response.headers.authorization])
+
     if (response.status === 200) {
       return [response.data, response.headers.authorization];
     }
@@ -17,23 +17,45 @@ export const login = createAsyncThunk(
   },
 );
 
+export const logout = createAsyncThunk('user/logout', async (_, { getState }) => {
+  const state = getState();
+  const url = `${BASE_URL}/users/sign_out`;
+  const headers = { Authorization: state.user.jwt };
+  const response = await axios.delete(url, { headers }).catch((error) => error);
+
+  if (response.status === 200) {
+    return response.data;
+  }
+
+  return response.message;
+});
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    user: {},
+    user: null,
     jwt: '',
     error: null,
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(login.fulfilled, (state, { payload }) => {
-        state.user = payload[0].user;
-        state.jwt = payload[1];
-        state.error = null;
-      })
-      .addCase(login.rejected, (state, { payload }) => {
-        state.error = payload;
-      });
+  extraReducers: {
+    [login.fulfilled]: (state, { payload }) => {
+      const [userData, jwt] = payload;
+      state.user = userData.user;
+      state.jwt = jwt;
+      state.error = null;
+    },
+    [login.rejected]: (state, { payload }) => {
+      state.error = payload;
+    },
+    [logout.fulfilled]: (state) => {
+      state.user = null;
+      state.jwt = '';
+      state.error = null;
+    },
+    [logout.rejected]: (state, { payload }) => {
+      state.error = payload;
+    },
+
   },
 });
 

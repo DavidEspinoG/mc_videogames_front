@@ -1,10 +1,15 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.webp';
+import { logout } from '../redux/slices/userSlice';
+import { selectUser } from '../redux/store';
 import '../styles/navigation.scss';
 
 const Navigation = () => {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  const user = useSelector(selectUser);
 
   //   This isAdmin state will be fetched from Redux store but for now we will use useState
   //   const isAdmin = useSelector((state) => state.user.isAdmin);
@@ -20,6 +25,10 @@ const Navigation = () => {
     }
   };
 
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <nav className="navbar">
       <div className="nav-container">
@@ -32,6 +41,15 @@ const Navigation = () => {
               <img className="logo" src={logo} alt="logo" />
             </Link>
           </div>
+          {user && (
+            <div className="user-name">
+              <h3 className="welcome">
+                Welcome,
+                {' '}
+                {user.name}
+              </h3>
+            </div>
+          )}
           <div className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}>
             <ul className="navbar-nav">
               <li>
@@ -53,9 +71,15 @@ const Navigation = () => {
                   </li>
                 </>
               )}
-              <li>
-                <NavLink className="nav-link" to="/login">Login</NavLink>
-              </li>
+              {user ? (
+                <li>
+                  <button type="button" className="nav-link logout-button" onClick={handleLogout}>Log out</button>
+                </li>
+              ) : (
+                <li>
+                  <NavLink className="nav-link" to="/login">Login</NavLink>
+                </li>
+              )}
             </ul>
           </div>
         </div>

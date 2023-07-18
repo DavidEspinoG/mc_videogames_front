@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -16,9 +16,14 @@ const Login = () => {
   // console.log(user);
   // console.log(error);
 
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
     dispatch(login({ email, password }));
   };
 
@@ -38,6 +43,13 @@ const Login = () => {
               Submit
             </button>
           </form>
+          <small>
+            *
+            {' '}
+            {error}
+            {' '}
+            *
+          </small>
         </div>
       </div>
     </div>
