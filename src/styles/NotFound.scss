@@ -1,0 +1,31 @@
+@keyframes redirecting {
+  0% {
+    color: white;
+  }
+
+  50% {
+    color: var(--green);
+  }
+
+  100% {
+    color: white;
+  }
+}
+
+.notfound-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notfound-title {
+  color: white;
+}
+
+.redirecting {
+  animation-name: redirecting;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
