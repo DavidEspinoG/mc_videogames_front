@@ -13,8 +13,8 @@ const Login = () => {
   const error = useSelector(selectUserError);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  console.log(user);
-  console.log(error);
+  // console.log(user);
+  // console.log(error);
 
   const handleSubmit = (e) => {
     e.preventDefault();

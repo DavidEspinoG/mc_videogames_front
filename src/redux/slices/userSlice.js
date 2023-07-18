@@ -8,10 +8,9 @@ export const login = createAsyncThunk(
     const url = `${BASE_URL}/users/sign_in`;
     const body = { user: { email, password } };
     const response = await axios.post(url, body).catch((error) => error);
-    console.log(response);
-
+    console.log([response.data, response.headers.authorization])
     if (response.status === 200) {
-      return response.data;
+      return [response.data, response.headers.authorization];
     }
 
     return rejectWithValue(response.response.data.message);
@@ -28,7 +27,8 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(login.fulfilled, (state, { payload }) => {
-        state.user = payload;
+        state.user = payload[0].user;
+        state.jwt = payload[1];
         state.error = null;
       })
       .addCase(login.rejected, (state, { payload }) => {

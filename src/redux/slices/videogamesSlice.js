@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-
+import BASE_URL from '../constants';
 // TODO: Update to deployment URL
-const BASE_URL = 'http://localhost:3001';
+// const BASE_URL = 'http://localhost:3001';
 
 const getDetails = createAsyncThunk('videogames/getDetails', async (id) => {
   try {
