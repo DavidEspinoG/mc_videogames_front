@@ -1,9 +1,27 @@
+import { useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
-import '../styles/Login.scss';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../redux/slices/userSlice';
+import { selectUser, selectUserError } from '../redux/store';
+import '../styles/Login.scss';
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  const error = useSelector(selectUserError);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  console.log(user);
+  console.log(error);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(email, password);
+    dispatch(login({ email, password }));
+  };
+
   return (
     <div className="login-main-container">
       <div className="container">
@@ -13,13 +31,13 @@ const Login = () => {
         <div className="login-form">
           <h3 className="subtitle text-center">LOGIN</h3>
           <hr className="green-line" />
-          <div className="login-inputs">
-            <input placeholder="Email" className="input" />
-            <input placeholder="Password" className="input" />
-            <button type="button" className="login-submit-button">
+          <form className="login-inputs" onSubmit={handleSubmit}>
+            <input placeholder="Email" className="input" type="text" value={email} onChange={(e) => setEmail(e.currentTarget.value)} />
+            <input placeholder="Password" className="input" type="password" value={password} onChange={(e) => setPassword(e.currentTarget.value)} />
+            <button type="submit" className="login-submit-button">
               Submit
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
