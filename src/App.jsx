@@ -1,5 +1,8 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Navigation from './components/navigation';
+import { setLocalStorageUserData } from './redux/slices/userSlice';
 import AddVideogame from './routes/AddVideogame';
 import DeleteVideogame from './routes/DeleteVideogame';
 import Details from './routes/Details';
@@ -10,7 +13,12 @@ import NotFound from './routes/NotFound';
 import Reserve from './routes/Reserve';
 
 const App = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
+
+  useEffect(() => {
+    dispatch(setLocalStorageUserData());
+  }, [dispatch]);
 
   return (
     <>

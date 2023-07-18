@@ -10,6 +10,7 @@ export const login = createAsyncThunk(
     const response = await axios.post(url, body).catch((error) => error);
 
     if (response.status === 200) {
+      localStorage.setItem('user', JSON.stringify([response.data, response.headers.authorization]));
       return [response.data, response.headers.authorization];
     }
 
@@ -24,6 +25,7 @@ export const logout = createAsyncThunk('user/logout', async (_, { getState }) =>
   const response = await axios.delete(url, { headers }).catch((error) => error);
 
   if (response.status === 200) {
+    localStorage.removeItem('user');
     return response.data;
   }
 
@@ -36,6 +38,16 @@ const userSlice = createSlice({
     user: null,
     jwt: '',
     error: null,
+  },
+  reducers: {
+    setLocalStorageUserData: (state) => {
+      const localStorageUserData = localStorage.getItem('user');
+      if (localStorageUserData) {
+        const [userData, jwt] = JSON.parse(localStorageUserData);
+        state.user = userData.user;
+        state.jwt = jwt;
+      }
+    },
   },
   extraReducers: {
     [login.fulfilled]: (state, { payload }) => {
@@ -58,5 +70,7 @@ const userSlice = createSlice({
 
   },
 });
+
+export const { setLocalStorageUserData } = userSlice.actions;
 
 export default userSlice.reducer;
