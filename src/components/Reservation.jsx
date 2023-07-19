@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import '../styles/carousel-item.scss';
+import formatDate from '../utils/formatDate';
 import formatToCurrency from '../utils/formatToCurrency';
 
 const Reservation = ({ data }) => {
@@ -18,7 +19,12 @@ const Reservation = ({ data }) => {
         <p className="mb-0">
           <span className="fw-bold">Starting date:</span>
           {' '}
-          {createdAt}
+          {formatDate(createdAt)}
+        </p>
+        <p className="mb-0">
+          <span className="fw-bold">Finishing date:</span>
+          {' '}
+          {formatDate(createdAt, days)}
         </p>
         <p className="mb-0">
           <span className="fw-bold">Days:</span>
@@ -39,7 +45,7 @@ const Reservation = ({ data }) => {
 Reservation.propTypes = {
   data: PropTypes.shape({
     days: PropTypes.number,
-    total_price: PropTypes.number,
+    total_price: PropTypes.string,
     created_at: PropTypes.string,
     videogame: PropTypes.shape({
       name: PropTypes.string,
