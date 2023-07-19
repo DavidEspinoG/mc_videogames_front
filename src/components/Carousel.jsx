@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import '../styles/carousel.scss';
 import Reservation from './Reservation';
 import Videogame from './Videogame';
@@ -18,7 +19,12 @@ const Carousel = ({
   return (
     <section id="carousel" className="row mx-0 g-0">
       <div className="col-auto d-flex flex-column justify-content-center">
-        <button type="button" className="btn-carousel btn-left p-3" onClick={handleLeftClick} disabled={disabledLeft}>
+        <button
+          type="button"
+          className="btn-carousel btn-left p-3"
+          onClick={handleLeftClick}
+          disabled={disabledLeft}
+        >
           <BsCaretLeft className="fs-5" />
         </button>
       </div>
@@ -26,17 +32,24 @@ const Carousel = ({
         {items.map((item) => {
           const { id } = item;
 
-          if (item?.name) {
-            return <Videogame key={id} data={item} deleteButton={deleteButton} />;
-          }
-
           return (
-            <Reservation key={id} data={item} />
+            <Link key={id} to={`/details/${id}`}>
+              {item?.name ? (
+                <Videogame data={item} deleteButton={deleteButton} />
+              ) : (
+                <Reservation data={item} />
+              )}
+            </Link>
           );
         })}
       </div>
       <div className="col-auto d-flex flex-column justify-content-center">
-        <button type="button" className="btn-carousel btn-right p-3" onClick={handleRightClick} disabled={disabledRight}>
+        <button
+          type="button"
+          className="btn-carousel btn-right p-3"
+          onClick={handleRightClick}
+          disabled={disabledRight}
+        >
           <BsCaretRight className="fs-5" />
         </button>
       </div>
@@ -45,7 +58,9 @@ const Carousel = ({
 };
 
 Carousel.propTypes = {
-  items: PropTypes.arrayOf(Reservation.propTypes.data).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.oneOfType([Reservation.propTypes.data, Videogame.propTypes.data]),
+  ).isRequired,
   setPage: PropTypes.func.isRequired,
   disabledLeft: PropTypes.bool.isRequired,
   disabledRight: PropTypes.bool.isRequired,

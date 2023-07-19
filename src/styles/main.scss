@@ -31,10 +31,11 @@ body {
 
 a {
   color: inherit;
-}
+  text-decoration: inherit;
 
-a:hover {
-  color: inherit;
+  &:hover {
+    color: inherit;
+  }
 }
 
 @media (min-width: 769px) {
