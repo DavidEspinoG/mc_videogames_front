@@ -35,7 +35,6 @@ export const logout = createAsyncThunk('user/logout', async (_, { getState }) =>
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    user: null,
     jwt: '',
     error: null,
   },
@@ -46,6 +45,8 @@ const userSlice = createSlice({
         const [userData, jwt] = JSON.parse(localStorageUserData);
         state.user = userData.user;
         state.jwt = jwt;
+      } else {
+        state.user = null;
       }
     },
   },
