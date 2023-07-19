@@ -60,6 +60,7 @@ const Reserve = () => {
                   <option key={element.id} value={element.id}>{element.name}</option>))}
               </select>
               <input
+                required
                 type="date"
                 min={getTomorrowDate()}
                 className="input"
