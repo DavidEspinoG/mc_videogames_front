@@ -82,6 +82,7 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 15px;
+  max-width: 90%;
 }
 
 .text-center {
@@ -101,7 +102,7 @@
   transform: scale(1.1);
 }
 
-@media (min-width: 956px) {
+@media (min-width: 1200px) {
   .login-inputs {
     flex-direction: row;
   }
