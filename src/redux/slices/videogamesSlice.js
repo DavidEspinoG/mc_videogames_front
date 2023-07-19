@@ -25,7 +25,7 @@ const deleteVideogame = createAsyncThunk('videogames/delete', async (id, { getSt
         Authorization: state.user.jwt,
       },
     });
-    return response.data;
+    return [response.data, id];
   } catch (error) {
     return error;
   }
@@ -53,8 +53,12 @@ const videogamesSlice = createSlice({
     all: null,
     details: null,
     message: null,
-    loading: false,
     error: null,
+  },
+  reducers: {
+    clearDetails: (state) => {
+      state.details = null;
+    },
   },
   extraReducers: {
     [getDetails.fulfilled]: (state, { payload }) => {
@@ -67,15 +71,14 @@ const videogamesSlice = createSlice({
       state.all = payload;
       state.loading = false;
     },
-    [getVideogames.pending]: (state) => {
-      state.loading = true;
-    },
     [getVideogames.rejected]: (state, { payload }) => {
       state.error = payload;
       state.loading = false;
     },
     [deleteVideogame.fulfilled]: (state, { payload }) => {
-      state.message = payload.message;
+      const [data, id] = payload;
+      state.all = state.all.filter((videogame) => videogame.id !== id);
+      state.message = data.message;
       state.error = null;
     },
     [deleteVideogame.rejected]: (state, { payload }) => {
@@ -84,6 +87,6 @@ const videogamesSlice = createSlice({
   },
 });
 
+export const { clearDetails } = videogamesSlice.actions;
 export default videogamesSlice.reducer;
 export { deleteVideogame, getDetails };
-
