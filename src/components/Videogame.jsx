@@ -16,7 +16,7 @@ const Videogame = ({ data, deleteButton }) => {
   return (
     <article className="col">
       <div className="vh-25 mb-4">
-        <img className="h-100 img-fluid rounded" src={photo} alt={name} />
+        <img className="h-100 img-fluid rounded aspect-ratio-1" src={photo} alt={name} />
       </div>
       <h3 className="h6 fw-bolder text-uppercase mb-4">{name}</h3>
       <div className="text-muted small">

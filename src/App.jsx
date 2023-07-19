@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Navigation from './components/navigation';
 import ProtectedRoute from './components/ProtectedRoute';
+import Navigation from './components/navigation';
 import { setLocalStorageUserData } from './redux/slices/userSlice';
 import { selectUser } from './redux/store';
 import AddVideogame from './routes/AddVideogame';

@@ -2,14 +2,19 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import BASE_URL from '../constants';
 
-const getDetails = createAsyncThunk('videogames/getDetails', async (id) => {
-  try {
-    const response = await axios.get(`${BASE_URL}/videogames/${id}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    return error;
+const getDetails = createAsyncThunk('videogames/getDetails', async (id, { getState, rejectWithValue }) => {
+  const state = getState();
+  const response = await axios.get(`${BASE_URL}/videogames/${id}`, {
+    headers: {
+      Authorization: state.user.jwt,
+    },
+  }).catch((error) => error);
+
+  if (response.status === 200) {
+    return response.data;
   }
+
+  return rejectWithValue(response.message);
 });
 
 const deleteVideogame = createAsyncThunk('videogames/delete', async (id, { getState }) => {
@@ -45,51 +50,18 @@ export const getVideogames = createAsyncThunk(
 const videogamesSlice = createSlice({
   name: 'videogames',
   initialState: {
-    all: [
-      {
-        id: 1,
-        name: 'Zelda: Breath of the wild',
-        photo: 'http://fakeurl.com',
-        description: 'A very interesting game',
-        price_per_day: 20,
-      },
-      {
-        id: 2,
-        name: 'Hogwarts Legacy',
-        photo: 'http://fakeurl.com',
-        description: 'A very interesting game',
-        price_per_day: 30,
-      },
-      {
-        id: 3,
-        name: 'God of war',
-        photo: 'http://fakeurl.com',
-        description: 'A very interesting game',
-        price_per_day: 35,
-      },
-    ],
-    details: {
-      id: 1,
-      name: 'Super Mario Bros',
-      photo: 'https://cdn.mobygames.com/covers/4039218-super-mario-bros-nes-front-cover.jpg',
-      description: 'Super Mario Bros is a platform game developed and published by Nintendo. The successor to the 1983 arcade game Mario Bros. and the first game in the Super Mario series, it was first released in 1985 for the Famicom in Japan.',
-      pricePerDay: 5,
-    },
+    all: null,
+    details: null,
     message: null,
     loading: false,
     error: null,
   },
   extraReducers: {
-    [getDetails.fulfilled]: (state, action) => {
-      state.details = action.payload;
-      state.loading = false;
-    },
-    [getDetails.pending]: (state) => {
-      state.loading = true;
+    [getDetails.fulfilled]: (state, { payload }) => {
+      state.details = payload;
     },
     [getDetails.rejected]: (state, action) => {
-      state.details = action.payload;
-      state.loading = false;
+      state.error = action.payload;
     },
     [getVideogames.fulfilled]: (state, { payload }) => {
       state.all = payload;
@@ -114,3 +86,4 @@ const videogamesSlice = createSlice({
 
 export default videogamesSlice.reducer;
 export { deleteVideogame, getDetails };
+
