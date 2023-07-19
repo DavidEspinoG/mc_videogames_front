@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-// TODO: Update to deployment URL
-const BASE_URL = 'http://127.0.0.1:3000';
+import BASE_URL from '../constants';
 
 export const getReservations = createAsyncThunk(
   'reservations/getReservations',
