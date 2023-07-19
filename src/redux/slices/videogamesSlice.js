@@ -76,24 +76,31 @@ const videogamesSlice = createSlice({
       pricePerDay: 5,
     },
     message: null,
+    loading: false,
     error: null,
   },
   extraReducers: {
     [getDetails.fulfilled]: (state, action) => {
       state.details = action.payload;
+      state.loading = false;
+    },
+    [getDetails.pending]: (state) => {
+      state.loading = true;
     },
     [getDetails.rejected]: (state, action) => {
       state.details = action.payload;
-    },
-    [getDetails.pending]: (state, action) => {
-      state.details = action.payload;
+      state.loading = false;
     },
     [getVideogames.fulfilled]: (state, { payload }) => {
       state.all = payload;
-      state.error = null;
+      state.loading = false;
+    },
+    [getVideogames.pending]: (state) => {
+      state.loading = true;
     },
     [getVideogames.rejected]: (state, { payload }) => {
       state.error = payload;
+      state.loading = false;
     },
     [deleteVideogame.fulfilled]: (state, { payload }) => {
       state.message = payload.message;
