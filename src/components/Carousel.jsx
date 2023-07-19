@@ -31,7 +31,7 @@ const Carousel = ({
           }
 
           return (
-            <Reservation key={id} data={item} deleteButton={deleteButton} />
+            <Reservation key={id} data={item} />
           );
         })}
       </div>
