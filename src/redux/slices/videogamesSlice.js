@@ -14,7 +14,7 @@ const getDetails = createAsyncThunk('videogames/getDetails', async (id, { getSta
     return response.data;
   }
 
-  return rejectWithValue(response.data);
+  return rejectWithValue(response.message);
 });
 
 const deleteVideogame = createAsyncThunk('videogames/delete', async (id, { getState }) => {
@@ -73,7 +73,7 @@ const videogamesSlice = createSlice({
         price_per_day: 35,
       },
     ],
-    details: {},
+    details: null,
     message: null,
     error: null,
   },
@@ -83,9 +83,6 @@ const videogamesSlice = createSlice({
     },
     [getDetails.rejected]: (state, action) => {
       state.error = action.payload;
-    },
-    [getDetails.pending]: (state, action) => {
-      state.details = action.payload;
     },
     [getVideogames.fulfilled]: (state, { payload }) => {
       state.all = payload;
