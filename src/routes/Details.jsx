@@ -4,6 +4,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import colorWheel from '../assets/color_wheel.png';
+import Spinner from '../components/spinner';
 import { getDetails } from '../redux/slices/videogamesSlice';
 import { selectVideogameDetails } from '../redux/store';
 import '../styles/details.scss';
@@ -18,7 +19,11 @@ const Details = () => {
   }, [dispatch, id]);
 
   if (!videogameDetails) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className="d-flex justify-content-center align-items-center w-100 h-100">
+        <Spinner />
+      </div>
+    );
   }
 
   const {
