@@ -2,18 +2,19 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import BASE_URL from '../constants';
 
-const getDetails = createAsyncThunk('videogames/getDetails', async (id, { getState }) => {
-  try {
-    const state = getState();
-    const response = await axios.get(`${BASE_URL}/videogames/${id}`, {
-      headers: {
-        Authorization: state.user.jwt,
-      },
-    });
-    return await response.data;
-  } catch (error) {
-    return error;
+const getDetails = createAsyncThunk('videogames/getDetails', async (id, { getState, rejectWithValue }) => {
+  const state = getState();
+  const response = await axios.get(`${BASE_URL}/videogames/${id}`, {
+    headers: {
+      Authorization: state.user.jwt,
+    },
+  }).catch((error) => error);
+
+  if (response.status === 200) {
+    return response.data;
   }
+
+  return rejectWithValue(response.data);
 });
 
 export const getVideogames = createAsyncThunk(
@@ -63,12 +64,10 @@ const videogamesSlice = createSlice({
   },
   extraReducers: {
     [getDetails.fulfilled]: (state, { payload }) => {
-      if (payload.name !== 'AxiosError') {
-        state.details = payload;
-      }
+      state.details = payload;
     },
     [getDetails.rejected]: (state, action) => {
-      state.details = action.payload;
+      state.error = action.payload;
     },
     [getDetails.pending]: (state, action) => {
       state.details = action.payload;
