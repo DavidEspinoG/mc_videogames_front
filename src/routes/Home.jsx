@@ -28,7 +28,11 @@ const Home = ({ deleteButton, message }) => {
     return <h1>{error}</h1>;
   }
 
-  if (!videogames?.length) {
+  if (!videogames) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (!videogames.length) {
     return <h1>There are no videogames available</h1>;
   }
 

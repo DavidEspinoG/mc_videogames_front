@@ -27,7 +27,11 @@ const MyReservations = () => {
     return <h1>{error}</h1>;
   }
 
-  if (!reservations?.length) {
+  if (reservations) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (!reservations.length) {
     return <h1>There are no reservations in your name</h1>;
   }
 

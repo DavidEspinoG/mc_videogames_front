@@ -21,7 +21,7 @@ export const getReservations = createAsyncThunk(
 const reservationsSlice = createSlice({
   name: 'reservations',
   initialState: {
-    reservations: [],
+    reservations: null,
     error: null,
   },
   extraReducers: (builder) => {
