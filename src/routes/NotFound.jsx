@@ -11,7 +11,7 @@ const NotFound = () => {
   });
   return (
     <div className="login-main-container">
-      <div className="notfound-container">
+      <div className="notfound-container container">
         <h2 className="notfound-title">The page you&apos;re looking for does not exist</h2>
         <p className="redirecting">Redirecting to home..</p>
       </div>
