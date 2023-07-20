@@ -1,12 +1,12 @@
-import '../styles/Login.scss';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import '../styles/reserve.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
 import axios from 'axios';
-import getTomorrowDate from '../utils/getTomorrowDate';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import BASE_URL from '../redux/constants';
 import { getVideogames } from '../redux/slices/videogamesSlice';
+import '../styles/Login.scss';
+import '../styles/Reserve.scss';
+import getTomorrowDate from '../utils/getTomorrowDate';
 
 const Reserve = () => {
   const [searchParams] = useSearchParams();
