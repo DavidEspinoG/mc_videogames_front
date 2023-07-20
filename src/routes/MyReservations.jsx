@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'usehooks-ts';
 import Carousel from '../components/Carousel';
+import Spinner from '../components/spinner';
 import { getReservations } from '../redux/slices/reservationsSlice';
 import { selectReservations, selectReservationsError } from '../redux/store';
 
@@ -27,11 +28,15 @@ const MyReservations = () => {
     return <h1>{error}</h1>;
   }
 
-  if (reservations) {
-    return <h1>Loading...</h1>;
+  if (!reservations) {
+    return (
+      <div className="d-flex justify-content-center align-items-center w-100 h-100">
+        <Spinner />
+      </div>
+    );
   }
 
-  if (!reservations.length) {
+  if (!reservations?.length) {
     return <h1>There are no reservations in your name</h1>;
   }
 

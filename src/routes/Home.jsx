@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'usehooks-ts';
 import Carousel from '../components/Carousel';
+import Spinner from '../components/spinner';
 import { getVideogames } from '../redux/slices/videogamesSlice';
 import { selectVideogames, selectVideogamesError } from '../redux/store';
 
@@ -29,7 +30,11 @@ const Home = ({ deleteButton, message }) => {
   }
 
   if (!videogames) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className="d-flex justify-content-center align-items-center w-100 h-100">
+        <Spinner />
+      </div>
+    );
   }
 
   if (!videogames.length) {
@@ -53,13 +58,13 @@ const Home = ({ deleteButton, message }) => {
         deleteButton={deleteButton}
       />
       { message && (
-        <small className="mt-5 fw-bold">
-          *
-          {' '}
-          {message}
-          {' '}
-          *
-        </small>
+      <small className="mt-5 fw-bold">
+        *
+        {' '}
+        {message}
+        {' '}
+        *
+      </small>
       )}
     </div>
   );

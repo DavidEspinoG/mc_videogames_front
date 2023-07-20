@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { deleteVideogame } from '../redux/slices/videogamesSlice';
 import '../styles/carousel-item.scss';
 
@@ -15,10 +16,12 @@ const Videogame = ({ data, deleteButton }) => {
 
   return (
     <article className="col">
-      <div className="vh-25 mb-4">
-        <img className="h-100 img-fluid rounded aspect-ratio-1" src={photo} alt={name} />
-      </div>
-      <h3 className="h6 fw-bolder text-uppercase mb-4">{name}</h3>
+      <Link key={id} to={`/details/${id}`}>
+        <div className="vh-25 mb-4">
+          <img className="h-100 img-fluid rounded aspect-ratio-1" src={photo} alt={name} />
+        </div>
+        <h3 className="h6 fw-bolder text-uppercase mb-4">{name}</h3>
+      </Link>
       <div className="text-muted small">
         <p className="d-webkit-box clamp-3">{description}</p>
       </div>

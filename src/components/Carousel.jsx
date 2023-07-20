@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
 import '../styles/carousel.scss';
 import Reservation from './Reservation';
 import Videogame from './Videogame';
@@ -33,13 +32,13 @@ const Carousel = ({
           const { id } = item;
 
           return (
-            <Link key={id} to={`/details/${id}`}>
+            <div key={id}>
               {item?.name ? (
                 <Videogame data={item} deleteButton={deleteButton} />
               ) : (
                 <Reservation data={item} />
               )}
-            </Link>
+            </div>
           );
         })}
       </div>
