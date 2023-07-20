@@ -79,7 +79,7 @@ const Details = () => {
           <BiGame className="icon" />
           <img src={colorWheel} alt="color wheel" className="color-wheel" />
         </div>
-        <Link to={`/reserve/?videogameId=${id}`} className="reserve-button">
+        <Link to={`/reserve?videogameId=${id}`} className="reserve-button">
           Reserve
           <MdKeyboardArrowRight className="icon" />
         </Link>
