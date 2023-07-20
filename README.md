@@ -3,7 +3,7 @@
   <br/>
 </div>
 <div align="center">
-  <h1><b>Videogames Back End</b></h1>
+  <h1><b>Videogames Front end</b></h1>
 </div>
 
 <!--
