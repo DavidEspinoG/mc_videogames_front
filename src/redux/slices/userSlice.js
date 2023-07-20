@@ -6,11 +6,10 @@ export const login = createAsyncThunk(
   'user/login',
   async ({ email, password }, { rejectWithValue }) => {
     const url = `${BASE_URL}/users/sign_in`;
-    const body = { user: { email, password } };
-    const response = await axios.post(url, body).catch((error) => error);
+    const data = { headers: { Accept: 'application/json' }, user: { email, password } };
+    const response = await axios.post(url, data).catch((error) => error);
 
     if (response.status === 200) {
-      localStorage.setItem('user', JSON.stringify([response.data, response.headers.authorization]));
       return [response.data, response.headers.authorization];
     }
 
@@ -21,11 +20,10 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk('user/logout', async (_, { getState }) => {
   const state = getState();
   const url = `${BASE_URL}/users/sign_out`;
-  const headers = { Authorization: state.user.jwt };
+  const headers = { Accept: 'application/json', Authorization: state.user.jwt };
   const response = await axios.delete(url, { headers }).catch((error) => error);
 
   if (response.status === 200) {
-    localStorage.removeItem('user');
     return response.data;
   }
 
@@ -34,10 +32,7 @@ export const logout = createAsyncThunk('user/logout', async (_, { getState }) =>
 
 const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    jwt: '',
-    error: null,
-  },
+  initialState: {},
   reducers: {
     setLocalStorageUserData: (state) => {
       const localStorageUserData = localStorage.getItem('user');
@@ -52,23 +47,28 @@ const userSlice = createSlice({
   },
   extraReducers: {
     [login.fulfilled]: (state, { payload }) => {
+      localStorage.setItem('user', JSON.stringify(payload));
       const [userData, jwt] = payload;
       state.user = userData.user;
       state.jwt = jwt;
-      state.error = null;
+      state.loginLoading = false;
+      state.loginError = null;
+    },
+    [login.pending]: (state) => {
+      state.loginLoading = true;
     },
     [login.rejected]: (state, { payload }) => {
-      state.error = payload;
+      state.loginError = payload;
     },
     [logout.fulfilled]: (state) => {
+      localStorage.removeItem('user');
       state.user = null;
-      state.jwt = '';
-      state.error = null;
+      state.jwt = null;
+      state.logoutError = null;
     },
     [logout.rejected]: (state, { payload }) => {
-      state.error = payload;
+      state.logoutError = payload;
     },
-
   },
 });
 
