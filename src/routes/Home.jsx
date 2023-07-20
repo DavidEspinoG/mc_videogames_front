@@ -26,7 +26,7 @@ const Home = ({ deleteButton, message }) => {
   }, [dispatch]);
 
   if (error) {
-    return <h1>{error}</h1>;
+    return <h1 className="text-center">{error}</h1>;
   }
 
   if (!videogames) {
@@ -38,7 +38,7 @@ const Home = ({ deleteButton, message }) => {
   }
 
   if (!videogames.length) {
-    return <h1>There are no videogames available</h1>;
+    return <h1 className="text-center">There are no videogames available</h1>;
   }
 
   const slicedItems = videogames.slice(page, page + itemsPerPage);
@@ -57,7 +57,7 @@ const Home = ({ deleteButton, message }) => {
         disabledRight={disabledRight}
         deleteButton={deleteButton}
       />
-      { message && (
+      {message && (
       <small className="mt-5 fw-bold">
         *
         {' '}

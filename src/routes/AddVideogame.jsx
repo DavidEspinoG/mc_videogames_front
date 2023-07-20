@@ -1,21 +1,26 @@
-import { useState } from 'react';
 import axios from 'axios';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import BASE_URL from '../redux/constants';
+import { selectJWT } from '../redux/store';
 import '../styles/AddVideogame.scss';
 
 const AddVideogame = () => {
-  const jwt = useSelector((state) => state.user.jwt);
+  const navigate = useNavigate();
+  const jwt = useSelector(selectJWT);
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState(0);
-  const navigate = useNavigate();
+
   const fetchVideogame = async () => {
     const apiUrl = `${BASE_URL}/videogames`;
     const body = {
-      name, photo: url, description, price_per_day: price,
+      name,
+      photo: url,
+      description,
+      price_per_day: price,
     };
     const headers = {
       headers: {
@@ -25,6 +30,7 @@ const AddVideogame = () => {
     const res = await axios.post(apiUrl, body, headers);
     return res;
   };
+
   return (
     <div className="reserve-main-container">
       <div className="container">
@@ -32,11 +38,12 @@ const AddVideogame = () => {
           <h3 className="subtitle text-center">ADD A VIDEOGAME</h3>
           <hr className="green-line" />
           <p>Add a videogame available for rent</p>
-          <form onSubmit={async (e) => {
-            e.preventDefault();
-            await fetchVideogame();
-            navigate('/');
-          }}
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              await fetchVideogame();
+              navigate('/');
+            }}
           >
             <div className="login-inputs">
               <input
@@ -76,10 +83,7 @@ const AddVideogame = () => {
               />
             </div>
             <div className="button-container">
-              <button
-                type="submit"
-                className="login-submit-button"
-              >
+              <button type="submit" className="login-submit-button">
                 Save
               </button>
             </div>
