@@ -1,27 +1,44 @@
-import '../styles/Login.scss';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import '../styles/reserve.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
 import axios from 'axios';
-import getTomorrowDate from '../utils/getTomorrowDate';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import Spinner from '../components/spinner';
 import BASE_URL from '../redux/constants';
 import { getVideogames } from '../redux/slices/videogamesSlice';
+import { selectReservationsError } from '../redux/store';
+import '../styles/Login.scss';
+import '../styles/reserve.scss';
+import getTomorrowDate from '../utils/getTomorrowDate';
 
 const Reserve = () => {
-  const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
-  const videogameId = searchParams.get('videogameId');
+  const navigate = useNavigate();
   const videogames = useSelector((state) => state.videogames.all);
+  const jwt = useSelector((state) => state.user.jwt);
+  const error = useSelector(selectReservationsError);
+  const [searchParams] = useSearchParams();
+  const videogameId = searchParams.get('videogameId');
+  const [selectedVideogameId, setSelectedVideogameId] = useState(videogameId || 0);
+  const [days, setDays] = useState(0);
+
   useEffect(() => {
     if (!videogames) {
       dispatch(getVideogames());
     }
   }, [dispatch, videogames]);
-  const navigate = useNavigate();
-  const [days, setDays] = useState(0);
-  const [selectedVideogameId, setSelectedVideogameId] = useState(videogameId || 0);
-  const jwt = useSelector((state) => state.user.jwt);
+
+  if (error) {
+    return <h1 className="text-center">{error}</h1>;
+  }
+
+  if (!videogames) {
+    return (
+      <div className="d-flex justify-content-center align-items-center w-100 h-100">
+        <Spinner />
+      </div>
+    );
+  }
+
   const handleDateChange = (e) => {
     const now = new Date();
     const userDate = new Date(e.target.value);
@@ -29,6 +46,7 @@ const Reserve = () => {
     const differenceDays = Math.ceil(difference / (1000 * 3600 * 24));
     setDays(differenceDays);
   };
+
   const fetchReservation = async () => {
     const url = `${BASE_URL}/reservations`;
     const body = { videogame_id: selectedVideogameId, days };
@@ -46,14 +64,16 @@ const Reserve = () => {
     await fetchReservation();
     navigate('/myReservations');
   };
+
   const handleVideogameChange = (e) => {
     setSelectedVideogameId(e.target.value);
   };
+
   return (
     <div className="reserve-main-container">
       <div className="container">
         <div className="login-form">
-          <h3 className="subtitle text-center">RESERVE A VIDEOGAME </h3>
+          <h3 className="subtitle text-center">RESERVE A VIDEOGAME</h3>
           <hr className="green-line" />
           <p>Select the videogame you want to rent and the date you want to return it</p>
           <form onSubmit={handleSubmit}>
@@ -66,10 +86,7 @@ const Reserve = () => {
               >
                 <option value={0}>-- Select a videogame --</option>
                 {videogames?.map((element) => (
-                  <option
-                    key={element.id}
-                    value={element.id}
-                  >
+                  <option key={element.id} value={element.id}>
                     {element.name}
                   </option>
                 ))}
@@ -79,12 +96,9 @@ const Reserve = () => {
                 type="date"
                 min={getTomorrowDate()}
                 className="input"
-                onChange={(e) => { handleDateChange(e); }}
+                onChange={handleDateChange}
               />
-              <button
-                type="submit"
-                className="login-submit-button"
-              >
+              <button type="submit" className="login-submit-button">
                 Submit
               </button>
             </div>
@@ -98,7 +112,6 @@ const Reserve = () => {
               days *
             </p>
           ) : ''}
-
         </div>
       </div>
     </div>
