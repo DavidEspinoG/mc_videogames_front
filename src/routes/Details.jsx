@@ -6,17 +6,22 @@ import { Link, useParams } from 'react-router-dom';
 import colorWheel from '../assets/color_wheel.png';
 import Spinner from '../components/spinner';
 import { getDetails } from '../redux/slices/videogamesSlice';
-import { selectVideogameDetails } from '../redux/store';
+import { selectVideogameDetails, selectVideogameDetailsError } from '../redux/store';
 import '../styles/details.scss';
 
 const Details = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const videogameDetails = useSelector(selectVideogameDetails);
+  const error = useSelector(selectVideogameDetailsError);
 
   useEffect(() => {
     dispatch(getDetails(id));
   }, [dispatch, id]);
+
+  if (error) {
+    return <h1 className="text-center">Videogame not found</h1>;
+  }
 
   if (!videogameDetails) {
     return (
