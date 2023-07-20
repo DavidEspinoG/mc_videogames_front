@@ -66,13 +66,6 @@ OPTIONAL SECTIONS:
   </ul>
 </details>
 
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
-
 <!-- Features -->
 
 ### Key Features <a id="key-features"></a>
@@ -99,9 +92,9 @@ OPTIONAL SECTIONS:
 
 <!-- LINK TO FRONT-END -->
 
-## 🔗 Link to backend <a id="link-front"></a>
+## 🔗 Link to backend <a id="link-back"></a>
 
-- [Backend link](https://mc-videogames-back.onrender.com)
+- [Backend link](https://github.com/sanieni6/mc_videogames_back)
 
 <!-- GETTING STARTED -->
 
@@ -120,7 +113,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  git https://github.com/DavidEspinoGmc_videogames_front.git
+  git clone git@github.com:DavidEspinoG/mc_videogames_front.git
   cd mc_videgames_front
 ```
 
