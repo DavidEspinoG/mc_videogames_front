@@ -1,13 +1,18 @@
 import '../styles/Login.scss';
 import { useNavigate } from 'react-router-dom';
 import '../styles/reserve.scss';
-import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import getTomorrowDate from '../utils/getTomorrowDate';
 import BASE_URL from '../redux/constants';
+import { getVideogames } from '../redux/slices/videogamesSlice';
 
 const Reserve = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getVideogames());
+  }, [dispatch]);
   const navigate = useNavigate();
   const mockData = useSelector((state) => state.videogames.all);
   const [days, setDays] = useState(0);
