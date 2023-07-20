@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import BASE_URL from '../constants';
-// TODO: Update to deployment URL
 
 export const getReservations = createAsyncThunk(
   'reservations/getReservations',
@@ -22,7 +21,7 @@ export const getReservations = createAsyncThunk(
 const reservationsSlice = createSlice({
   name: 'reservations',
   initialState: {
-    reservations: [],
+    reservations: null,
     error: null,
   },
   extraReducers: (builder) => {

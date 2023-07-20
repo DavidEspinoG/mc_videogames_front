@@ -1,21 +1,34 @@
 import { useEffect } from 'react';
 import { BiGame } from 'react-icons/bi';
 import { MdKeyboardArrowRight } from 'react-icons/md';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import colorWheel from '../assets/color_wheel.png';
+import Spinner from '../components/spinner';
+import { getDetails } from '../redux/slices/videogamesSlice';
+import { selectVideogameDetails } from '../redux/store';
 import '../styles/details.scss';
 
 const Details = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { id } = useParams();
-  const {
-    name, photo, description, pricePerDay,
-  } = useSelector((state) => state.videogames.details);
+  const videogameDetails = useSelector(selectVideogameDetails);
 
   useEffect(() => {
-    // dispatch(getDetails(id));
-  }, []);
+    dispatch(getDetails(id));
+  }, [dispatch, id]);
+
+  if (!videogameDetails) {
+    return (
+      <div className="d-flex justify-content-center align-items-center w-100 h-100">
+        <Spinner />
+      </div>
+    );
+  }
+
+  const {
+    name, photo, description, price_per_day: pricePerDay,
+  } = videogameDetails;
 
   return (
     <section className="details-section">

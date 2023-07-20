@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Navigation from './components/navigation';
 import ProtectedRoute from './components/ProtectedRoute';
+import Navigation from './components/navigation';
 import { setLocalStorageUserData } from './redux/slices/userSlice';
+import { clearDetails } from './redux/slices/videogamesSlice';
 import { selectUser } from './redux/store';
 import AddVideogame from './routes/AddVideogame';
 import DeleteVideogame from './routes/DeleteVideogame';
@@ -20,8 +21,11 @@ const App = () => {
   const user = useSelector(selectUser);
 
   useEffect(() => {
+    if (!location.pathname.startsWith('/details/')) {
+      dispatch(clearDetails());
+    }
     dispatch(setLocalStorageUserData());
-  }, [dispatch]);
+  }, [dispatch, location.pathname]);
 
   if (user === undefined) {
     return null;
