@@ -1,5 +1,5 @@
 // Mobile and medium breakpoint styles
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .details-section {
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
 }
 
 // Desktop breakpoint styles
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .details-section {
     display: flex;
     justify-content: space-around;
@@ -51,7 +51,7 @@
 }
 
 // Aditional breakpoint styles
-@media (min-width: 769px) and (max-width: 1000px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .thumbnail {
     width: 12rem !important;
   }
