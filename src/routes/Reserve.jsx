@@ -2,8 +2,10 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import Spinner from '../components/spinner';
 import BASE_URL from '../redux/constants';
 import { getVideogames } from '../redux/slices/videogamesSlice';
+import { selectReservationsError } from '../redux/store';
 import '../styles/Login.scss';
 import '../styles/reserve.scss';
 import getTomorrowDate from '../utils/getTomorrowDate';
@@ -13,6 +15,7 @@ const Reserve = () => {
   const navigate = useNavigate();
   const videogames = useSelector((state) => state.videogames.all);
   const jwt = useSelector((state) => state.user.jwt);
+  const error = useSelector(selectReservationsError);
   const [searchParams] = useSearchParams();
   const videogameId = searchParams.get('videogameId');
   const [selectedVideogameId, setSelectedVideogameId] = useState(videogameId || 0);
@@ -23,6 +26,18 @@ const Reserve = () => {
       dispatch(getVideogames());
     }
   }, [dispatch, videogames]);
+
+  if (error) {
+    return <h1 className="text-center">{error}</h1>;
+  }
+
+  if (!videogames) {
+    return (
+      <div className="d-flex justify-content-center align-items-center w-100 h-100">
+        <Spinner />
+      </div>
+    );
+  }
 
   const handleDateChange = (e) => {
     const now = new Date();
