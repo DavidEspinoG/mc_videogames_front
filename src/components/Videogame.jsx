@@ -15,7 +15,7 @@ const Videogame = ({ data, deleteButton }) => {
   };
 
   return (
-    <article className="h-100 d-flex flex-column">
+    <article className="col h-100 d-flex flex-column">
       <Link key={id} to={`/details/${id}`}>
         <div className="vh-25 mb-4">
           <img className="h-100 img-fluid rounded aspect-ratio-1" src={photo} alt={name} />
