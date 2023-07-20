@@ -32,7 +32,7 @@ const Carousel = ({
           const { id } = item;
 
           return (
-            <div key={id}>
+            <div key={id} className="col">
               {item?.name ? (
                 <Videogame data={item} deleteButton={deleteButton} />
               ) : (
