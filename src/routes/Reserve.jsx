@@ -7,7 +7,7 @@ import BASE_URL from '../redux/constants';
 import { getVideogames } from '../redux/slices/videogamesSlice';
 import { selectReservationsError } from '../redux/store';
 import '../styles/Login.scss';
-import '../styles/reserve.scss';
+import '../styles/Reserve.scss';
 import getTomorrowDate from '../utils/getTomorrowDate';
 
 const Reserve = () => {
