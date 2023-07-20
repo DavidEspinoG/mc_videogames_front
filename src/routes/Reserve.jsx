@@ -14,7 +14,7 @@ const Reserve = () => {
   const videogameId = searchParams.get('videogameId');
   const videogames = useSelector((state) => state.videogames.all);
   useEffect(() => {
-    if (videogames.length === 0) {
+    if (!videogames) {
       dispatch(getVideogames());
     }
   }, [dispatch, videogames]);
@@ -65,7 +65,7 @@ const Reserve = () => {
                 min={1}
               >
                 <option value={0}>-- Select a videogame --</option>
-                {videogames.map((element) => (
+                {videogames?.map((element) => (
                   <option
                     key={element.id}
                     value={element.id}
