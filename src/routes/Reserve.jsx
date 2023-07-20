@@ -1,5 +1,5 @@
 import '../styles/Login.scss';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import '../styles/reserve.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
@@ -9,7 +9,9 @@ import BASE_URL from '../redux/constants';
 import { getVideogames } from '../redux/slices/videogamesSlice';
 
 const Reserve = () => {
+  const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
+  const videogameId = searchParams.get('videogameId');
   const videogames = useSelector((state) => state.videogames.all);
   useEffect(() => {
     if (videogames.length === 0) {
@@ -18,7 +20,7 @@ const Reserve = () => {
   }, [dispatch, videogames]);
   const navigate = useNavigate();
   const [days, setDays] = useState(0);
-  const [selectedVideogameId, setSelectedVideogameId] = useState(0);
+  const [selectedVideogameId, setSelectedVideogameId] = useState(videogameId || 0);
   const jwt = useSelector((state) => state.user.jwt);
   const handleDateChange = (e) => {
     const now = new Date();
@@ -64,7 +66,13 @@ const Reserve = () => {
               >
                 <option value={0}>-- Select a videogame --</option>
                 {videogames.map((element) => (
-                  <option key={element.id} value={element.id}>{element.name}</option>))}
+                  <option
+                    key={element.id}
+                    value={element.id}
+                  >
+                    {element.name}
+                  </option>
+                ))}
               </select>
               <input
                 required
