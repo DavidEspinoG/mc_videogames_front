@@ -46,7 +46,7 @@ OPTIONAL SECTIONS:
 
 <!-- PROJECT DESCRIPTION -->
 
-# 🎮 mc_videgames_back <a id="about-project"></a>
+# 🎮 mc_videgames_front <a id="about-project"></a>
 
 **mc_videgames_front** is the front-end implementation of the final capstone group from Microverse. It is an application that let the user rent a videogame. It also let the admins create new videogames or delete them. 
 
@@ -99,7 +99,7 @@ OPTIONAL SECTIONS:
 
 <!-- LINK TO FRONT-END -->
 
-## 🔗 Link to front end <a id="link-front"></a>
+## 🔗 Link to backend <a id="link-front"></a>
 
 - [Backend link](https://mc-videogames-back.onrender.com)
 
