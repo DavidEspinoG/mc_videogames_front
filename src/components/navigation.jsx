@@ -30,55 +30,69 @@ const Navigation = () => {
     <nav className="navbar">
       <div className="nav-container">
         <div className="nav-group">
-          <div className="nav-header">
+          <div className="nav-header flex-md-column">
             <button className="navbar-toggler-button" type="button" onClick={() => setOpen(!open)}>
               <span className="navbar-toggler-icon" />
             </button>
-            <Link className="nav-logo" to="/">
-              <img className="logo" src={logo} alt="logo" />
-            </Link>
-          </div>
-          {user && (
-            <div className="user-name">
-              <h3 className="welcome">
+            {user && (
+            <div className="user-name order-md-1">
+              <h3 className="welcome mb-0 fw-bolder">
                 Welcome,
                 {' '}
                 {user.name}
               </h3>
             </div>
-          )}
+            )}
+            <Link className="nav-logo d-flex justify-content-center" to="/">
+              <img className="logo" src={logo} alt="logo" />
+            </Link>
+          </div>
           <div className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}>
             <ul className="navbar-nav">
               <li>
-                <NavLink className="nav-link" to="/" end onClick={handleNavLinkClick}>Home</NavLink>
+                <NavLink className="nav-link" to="/" end onClick={handleNavLinkClick}>
+                  Home
+                </NavLink>
               </li>
-              { user && (
+              {user && (
                 <>
                   <li>
-                    <NavLink className="nav-link" to="/reserve" onClick={handleNavLinkClick}>Reserve</NavLink>
+                    <NavLink className="nav-link" to="/reserve" onClick={handleNavLinkClick}>
+                      Reserve
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink className="nav-link" to="/myReservations" onClick={handleNavLinkClick}>My Reservations</NavLink>
+                    <NavLink className="nav-link" to="/myReservations" onClick={handleNavLinkClick}>
+                      My Reservations
+                    </NavLink>
                   </li>
                 </>
               )}
               {isAdmin && (
                 <>
                   <li>
-                    <NavLink className="nav-link" to="/add" onClick={handleNavLinkClick}>Add</NavLink>
+                    <NavLink className="nav-link" to="/add" onClick={handleNavLinkClick}>
+                      Add
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink className="nav-link" to="/delete" onClick={handleNavLinkClick}>Delete</NavLink>
+                    <NavLink className="nav-link" to="/delete" onClick={handleNavLinkClick}>
+                      Delete
+                    </NavLink>
                   </li>
                 </>
               )}
               {user ? (
                 <li>
-                  <button type="button" className="nav-link logout-button" onClick={handleLogout}>Log out</button>
+                  <button type="button" className="nav-link logout-button" onClick={handleLogout}>
+                    Log out
+                  </button>
                 </li>
               ) : (
                 <li>
-                  <NavLink className="nav-link" to="/login">Login</NavLink>
+                  <NavLink className="nav-link" to="/login">
+                    Login
+                  </NavLink>
                 </li>
               )}
             </ul>

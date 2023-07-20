@@ -1,5 +1,5 @@
 // Mobile and medium breakpoint styles
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .navbar {
     padding: 0;
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.781);
@@ -63,7 +63,7 @@
 }
 
 // Desktop breakpoint styles
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .navbar {
     min-height: 100vh;
     padding: 0;

@@ -7,10 +7,11 @@
 }
 
 .container {
-  width: 1200px;
-  max-width: 95%;
+  width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .back-icon {
@@ -33,6 +34,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
 }
 
 .subtitle {
@@ -43,15 +45,13 @@
 
 .green-line {
   border: 1px solid #bde244;
-  // max-width: 70%;
-  // margin: 0 auto;
   width: 600px;
   max-width: 80%;
 }
 
 .login-form {
   color: white;
-  height: calc(100vh - 50px);
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,7 +102,7 @@
   transform: scale(1.1);
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .login-inputs {
     flex-direction: row;
   }

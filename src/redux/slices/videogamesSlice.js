@@ -2,34 +2,47 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import BASE_URL from '../constants';
 
-const getDetails = createAsyncThunk('videogames/getDetails', async (id, { getState, rejectWithValue }) => {
-  const state = getState();
-  const response = await axios.get(`${BASE_URL}/videogames/${id}`, {
-    headers: {
-      Authorization: state.user.jwt,
-    },
-  }).catch((error) => error);
-
-  if (response.status === 200) {
-    return response.data;
-  }
-
-  return rejectWithValue(response.message);
-});
-
-const deleteVideogame = createAsyncThunk('videogames/delete', async (id, { getState }) => {
-  try {
+export const getDetails = createAsyncThunk(
+  'videogames/getDetails',
+  async (id, { getState, rejectWithValue }) => {
     const state = getState();
-    const response = await axios.delete(`${BASE_URL}/videogames/${id}`, {
-      headers: {
-        Authorization: state.user.jwt,
-      },
-    });
-    return [response.data, id];
-  } catch (error) {
-    return error;
-  }
-});
+    const response = await axios
+      .get(`${BASE_URL}/videogames/${id}`, {
+        headers: {
+          Accept: 'application/json',
+          Authorization: state.user.jwt,
+        },
+      })
+      .catch((error) => error);
+
+    if (response.status === 200) {
+      return response.data;
+    }
+
+    return rejectWithValue(response.message);
+  },
+);
+
+export const deleteVideogame = createAsyncThunk(
+  'videogames/delete',
+  async (id, { getState, rejectWithValue }) => {
+    const state = getState();
+    const response = await axios
+      .delete(`${BASE_URL}/videogames/${id}`, {
+        headers: {
+          Accept: 'application/json',
+          Authorization: state.user.jwt,
+        },
+      })
+      .catch((error) => error);
+
+    if (response.status === 200) {
+      return [response.data, id];
+    }
+
+    return rejectWithValue(response.message);
+  },
+);
 
 export const getVideogames = createAsyncThunk(
   'videogames/getVideogames',
@@ -49,12 +62,7 @@ export const getVideogames = createAsyncThunk(
 
 const videogamesSlice = createSlice({
   name: 'videogames',
-  initialState: {
-    all: null,
-    details: null,
-    message: null,
-    error: null,
-  },
+  initialState: {},
   reducers: {
     clearDetails: (state) => {
       state.details = null;
@@ -63,17 +71,10 @@ const videogamesSlice = createSlice({
   extraReducers: {
     [getDetails.fulfilled]: (state, { payload }) => {
       state.details = payload;
+      state.detailsError = null;
     },
     [getDetails.rejected]: (state, action) => {
-      state.error = action.payload;
-    },
-    [getVideogames.fulfilled]: (state, { payload }) => {
-      state.all = payload;
-      state.loading = false;
-    },
-    [getVideogames.rejected]: (state, { payload }) => {
-      state.error = payload;
-      state.loading = false;
+      state.detailsError = action.payload;
     },
     [deleteVideogame.fulfilled]: (state, { payload }) => {
       const [data, id] = payload;
@@ -82,11 +83,17 @@ const videogamesSlice = createSlice({
       state.error = null;
     },
     [deleteVideogame.rejected]: (state, { payload }) => {
-      state.error = payload;
+      state.deleteError = payload;
+    },
+    [getVideogames.fulfilled]: (state, { payload }) => {
+      state.all = payload;
+      state.allError = null;
+    },
+    [getVideogames.rejected]: (state, { payload }) => {
+      state.allError = payload;
     },
   },
 });
 
 export const { clearDetails } = videogamesSlice.actions;
 export default videogamesSlice.reducer;
-export { deleteVideogame, getDetails };

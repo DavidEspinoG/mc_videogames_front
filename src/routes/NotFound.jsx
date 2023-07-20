@@ -1,14 +1,18 @@
-import '../styles/NotFound.scss';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/NotFound.scss';
 
 const NotFound = () => {
   const navigate = useNavigate();
+
   useEffect(() => {
-    setTimeout(() => {
+    const timeoutID = setTimeout(() => {
       navigate('/');
     }, 3000);
+
+    return () => clearTimeout(timeoutID);
   });
+
   return (
     <div className="login-main-container">
       <div className="notfound-container container">

@@ -3,13 +3,14 @@ import { BiArrowBack } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../redux/slices/userSlice';
-import { selectUserError } from '../redux/store';
+import { selectUserLoginError, selectUserLoginLoading } from '../redux/store';
 import '../styles/Login.scss';
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const error = useSelector(selectUserError);
+  const loginLoading = useSelector(selectUserLoginLoading);
+  const loginError = useSelector(selectUserLoginError);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -28,17 +29,29 @@ const Login = () => {
           <h3 className="subtitle text-center">LOGIN</h3>
           <hr className="green-line" />
           <form className="login-inputs" onSubmit={handleSubmit}>
-            <input placeholder="Email" className="input" type="text" value={email} onChange={(e) => setEmail(e.currentTarget.value)} />
-            <input placeholder="Password" className="input" type="password" value={password} onChange={(e) => setPassword(e.currentTarget.value)} />
+            <input
+              placeholder="Email"
+              className="input"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.currentTarget.value)}
+            />
+            <input
+              placeholder="Password"
+              className="input"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.currentTarget.value)}
+            />
             <button type="submit" className="login-submit-button">
-              Submit
+              {loginLoading ? <div className="spinner-border" /> : 'Submit'}
             </button>
           </form>
-          {error && (
+          {loginError && (
           <small>
             *
             {' '}
-            {error}
+            {loginError}
             {' '}
             *
           </small>

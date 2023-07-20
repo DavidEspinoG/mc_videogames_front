@@ -25,7 +25,7 @@ const MyReservations = () => {
   }, [dispatch]);
 
   if (error) {
-    return <h1>{error}</h1>;
+    return <h1 className="text-center">{error}</h1>;
   }
 
   if (!reservations) {
@@ -36,8 +36,8 @@ const MyReservations = () => {
     );
   }
 
-  if (!reservations?.length) {
-    return <h1>There are no reservations in your name</h1>;
+  if (!reservations.length) {
+    return <h1 className="text-center">There are no reservations in your name</h1>;
   }
 
   const slicedItems = reservations.slice(page, page + itemsPerPage);

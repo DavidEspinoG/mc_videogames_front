@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Fragment } from 'react';
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
 import '../styles/carousel.scss';
 import Reservation from './Reservation';
@@ -32,13 +33,13 @@ const Carousel = ({
           const { id } = item;
 
           return (
-            <div key={id}>
+            <Fragment key={id}>
               {item?.name ? (
                 <Videogame data={item} deleteButton={deleteButton} />
               ) : (
                 <Reservation data={item} />
               )}
-            </div>
+            </Fragment>
           );
         })}
       </div>
