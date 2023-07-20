@@ -30,23 +30,23 @@ const Navigation = () => {
     <nav className="navbar">
       <div className="nav-container">
         <div className="nav-group">
-          <div className="nav-header">
+          <div className="nav-header flex-md-column">
             <button className="navbar-toggler-button" type="button" onClick={() => setOpen(!open)}>
               <span className="navbar-toggler-icon" />
             </button>
-            <Link className="nav-logo" to="/">
-              <img className="logo" src={logo} alt="logo" />
-            </Link>
-          </div>
-          {user && (
-            <div className="user-name">
-              <h3 className="welcome">
+            {user && (
+            <div className="user-name order-md-1">
+              <h3 className="welcome mb-0 fw-bolder">
                 Welcome,
                 {' '}
                 {user.name}
               </h3>
             </div>
-          )}
+            )}
+            <Link className="nav-logo d-flex justify-content-center" to="/">
+              <img className="logo" src={logo} alt="logo" />
+            </Link>
+          </div>
           <div className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}>
             <ul className="navbar-nav">
               <li>
