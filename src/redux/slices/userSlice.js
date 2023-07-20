@@ -58,6 +58,7 @@ const userSlice = createSlice({
       state.loginLoading = true;
     },
     [login.rejected]: (state, { payload }) => {
+      state.loginLoading = false;
       state.loginError = payload;
     },
     [logout.fulfilled]: (state) => {

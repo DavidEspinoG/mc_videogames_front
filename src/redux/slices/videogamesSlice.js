@@ -16,7 +16,7 @@ export const getDetails = createAsyncThunk(
       .catch((error) => error);
 
     if (response.status === 200) {
-      return [response.data, id];
+      return response.data;
     }
 
     return rejectWithValue(response.message);
@@ -37,7 +37,7 @@ export const deleteVideogame = createAsyncThunk(
       .catch((error) => error);
 
     if (response.status === 200) {
-      return response.data;
+      return [response.data, id];
     }
 
     return rejectWithValue(response.message);
