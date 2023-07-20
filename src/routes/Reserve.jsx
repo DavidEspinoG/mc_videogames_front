@@ -10,11 +10,13 @@ import { getVideogames } from '../redux/slices/videogamesSlice';
 
 const Reserve = () => {
   const dispatch = useDispatch();
+  const videogames = useSelector((state) => state.videogames.all);
   useEffect(() => {
-    dispatch(getVideogames());
-  }, [dispatch]);
+    if (videogames.length === 0) {
+      dispatch(getVideogames());
+    }
+  }, [dispatch, videogames]);
   const navigate = useNavigate();
-  const mockData = useSelector((state) => state.videogames.all);
   const [days, setDays] = useState(0);
   const [selectedVideogameId, setSelectedVideogameId] = useState(0);
   const jwt = useSelector((state) => state.user.jwt);
@@ -61,7 +63,7 @@ const Reserve = () => {
                 min={1}
               >
                 <option value={0}>-- Select a videogame --</option>
-                {mockData.map((element) => (
+                {videogames.map((element) => (
                   <option key={element.id} value={element.id}>{element.name}</option>))}
               </select>
               <input
