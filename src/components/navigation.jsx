@@ -35,13 +35,13 @@ const Navigation = () => {
               <span className="navbar-toggler-icon" />
             </button>
             {user && (
-            <div className="user-name order-md-1">
-              <h3 className="welcome mb-0 fw-bolder">
-                Welcome,
-                {' '}
-                {user.name}
-              </h3>
-            </div>
+              <div className="user-name order-md-1">
+                <h3 className="welcome mb-0 fw-bolder">
+                  Welcome,
+                  {' '}
+                  {user.name}
+                </h3>
+              </div>
             )}
             <Link className="nav-logo d-flex justify-content-center" to="/">
               <img className="logo" src={logo} alt="logo" />
