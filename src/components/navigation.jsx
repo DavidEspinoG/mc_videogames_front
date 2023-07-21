@@ -12,8 +12,14 @@ const Navigation = () => {
   const [open, setOpen] = useState(false);
   const user = useSelector(selectUser);
 
-  const labels = ['Home', 'Reserve', 'My reservations', 'Add', 'Delete', 'Login'];
-  const paths = ['/', '/reserve', '/myReservations', '/add', '/delete', '/login'];
+  const links = [
+    { label: 'Home', path: '/' },
+    { label: 'Reserve', path: '/reserve' },
+    { label: 'My reservations', path: '/myReservations' },
+    { label: 'Add', path: '/add' },
+    { label: 'Delete', path: '/delete' },
+    { label: 'Login', path: '/login' },
+  ];
 
   const closeNavbar = () => {
     setOpen(false);
@@ -55,11 +61,11 @@ const Navigation = () => {
 
           <div className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}>
             <ul className="navbar-nav">
-              {labels.map((label, index) => (
+              {links.map((link) => (
                 <NavigationLink
-                  key={label}
-                  label={label}
-                  path={paths[index]}
+                  key={link.label}
+                  label={link.label}
+                  path={link.path}
                   action={handleNavLinkClick}
                 />
               ))}
