@@ -37,7 +37,7 @@ describe('Carousel', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should trigger setPage callback when clicking on left and right buttons', async () => {
+  it('should trigger setPage callback when clicking the left and right buttons', async () => {
     const { getByTestId } = renderWithProviders(
       <Carousel
         items={mockVideogames}

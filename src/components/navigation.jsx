@@ -31,7 +31,12 @@ const Navigation = () => {
       <div className="nav-container">
         <div className="nav-group">
           <div className="nav-header flex-md-column">
-            <button className="navbar-toggler-button" type="button" onClick={() => setOpen(!open)}>
+            <button
+              data-testid="navbar-toggler-button"
+              className="navbar-toggler-button"
+              type="button"
+              onClick={() => setOpen(!open)}
+            >
               <span className="navbar-toggler-icon" />
             </button>
             {user && (
@@ -47,7 +52,10 @@ const Navigation = () => {
               <img className="logo" src={logo} alt="logo" />
             </Link>
           </div>
-          <div className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}>
+          <div
+            data-testid="navbar-collapse"
+            className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}
+          >
             <ul className="navbar-nav">
               <li>
                 <NavLink className="nav-link" to="/" end onClick={handleNavLinkClick}>

@@ -10,7 +10,7 @@ describe('Videogame', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should delete videogame from store when clicking delete button', async () => {
+  it('should delete videogame from the store when clicking the delete button', async () => {
     const { store, getByRole } = renderWithProviders(
       <Videogame data={mockVideogame} deleteButton />,
       {
