@@ -2,8 +2,10 @@ import Spinner from '../../components/spinner';
 import renderWithProviders from '../test-utils';
 
 describe('Spinner', () => {
-  it('should render as expected', () => {
+  // This component renders an external dependency that is already unit tested in their own repo
+  // https://github.com/Bayer-Group/atomic-spinner
+  it('should render', () => {
     const { container } = renderWithProviders(<Spinner />);
-    expect(container).toMatchSnapshot();
+    expect(container).not.toBeEmptyDOMElement();
   });
 });
