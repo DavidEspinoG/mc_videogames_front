@@ -38,7 +38,7 @@ Reservation.propTypes = {
     days: PropTypes.number,
     total_price: PropTypes.string,
     created_at: PropTypes.string,
-    videogame: PropTypes.oneOfType(Videogame.propTypes.data),
+    videogame: PropTypes.oneOfType([Videogame.propTypes.data]),
   }).isRequired,
 };
 

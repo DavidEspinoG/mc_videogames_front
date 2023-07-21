@@ -10,7 +10,7 @@ const ReservationDetails = ({ label, value }) => (
 
 ReservationDetails.propTypes = {
   label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 export default ReservationDetails;
