@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { PropTypes } from 'prop-types';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import setupStore from '../redux/store';
 
 const renderWithProviders = (
@@ -16,7 +16,7 @@ const renderWithProviders = (
 ) => {
   const Wrapper = ({ children }) => (
     <Provider store={store}>
-      <BrowserRouter>{children}</BrowserRouter>
+      <Router>{children}</Router>
     </Provider>
   );
 

@@ -1,7 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`ProtectedRoute > should render as expected 1`] = `
-<div>
-  Hello
-</div>
-`;

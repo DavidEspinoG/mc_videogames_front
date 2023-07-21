@@ -2,12 +2,13 @@ import ProtectedRoute from '../../components/ProtectedRoute';
 import renderWithProviders from '../test-utils';
 
 describe('ProtectedRoute', () => {
-  const isAllowed = true;
+  it('should render children when isAllowed is true', () => {
+    const { getByText } = renderWithProviders(<ProtectedRoute isAllowed>Hello</ProtectedRoute>);
+    expect(getByText('Hello')).toBeInTheDocument();
+  });
 
-  it('should render as expected', () => {
-    const { container } = renderWithProviders(
-      <ProtectedRoute isAllowed={isAllowed}>Hello</ProtectedRoute>,
-    );
-    expect(container).toMatchSnapshot();
+  it('should not render children when isAllowed is false', () => {
+    const { queryByText } = renderWithProviders(<ProtectedRoute>Hello</ProtectedRoute>);
+    expect(queryByText('Hello')).not.toBeInTheDocument();
   });
 });
