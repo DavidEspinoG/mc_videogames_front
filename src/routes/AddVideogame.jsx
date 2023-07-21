@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import BASE_URL from '../redux/constants';
+import LoginInputs from '../components/LoginInputs';
+import { createVideogame } from '../redux/slices/videogamesSlice';
 import { selectJWT } from '../redux/store';
 import '../styles/AddVideogame.scss';
 
@@ -14,21 +14,25 @@ const AddVideogame = () => {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState(0);
 
-  const fetchVideogame = async () => {
-    const apiUrl = `${BASE_URL}/videogames`;
-    const body = {
-      name,
-      photo: url,
-      description,
-      price_per_day: price,
-    };
-    const headers = {
-      headers: {
-        Authorization: jwt,
-      },
-    };
-    const res = await axios.post(apiUrl, body, headers);
-    return res;
+  const inputs = [
+    {
+      id: 0, placeholder: 'Name', type: 'text', value: name, action: setName,
+    },
+    {
+      id: 1, placeholder: 'Image URL', type: 'text', value: url, action: setUrl,
+    },
+    {
+      id: 2, placeholder: 'Description', type: 'text', value: description, action: setDescription,
+    },
+    {
+      id: 3, placeholder: 'Price per day', type: 'number', value: price, action: setPrice,
+    },
+  ];
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await createVideogame(name, url, description, price, jwt);
+    navigate('/');
   };
 
   return (
@@ -38,49 +42,17 @@ const AddVideogame = () => {
           <h3 className="subtitle text-center">ADD A VIDEOGAME</h3>
           <hr className="green-line" />
           <p>Add a videogame available for rent</p>
-          <form
-            onSubmit={async (e) => {
-              e.preventDefault();
-              await fetchVideogame();
-              navigate('/');
-            }}
-          >
+          <form onSubmit={handleSubmit}>
             <div className="login-inputs">
-              <input
-                value={name}
-                type="text"
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-                className="input"
-                placeholder="Name"
-                required
-              />
-              <input
-                value={url}
-                type="text"
-                className="input"
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder="Image url"
-                required
-              />
-              <input
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                type="text"
-                className="input"
-                placeholder="Description"
-                required
-              />
-              <input
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                min={0}
-                type="number"
-                className="input"
-                placeholder="Price per day"
-                required
-              />
+              {inputs.map((input) => (
+                <LoginInputs
+                  key={input.id}
+                  value={input.value}
+                  type={input.type}
+                  action={(e) => input.action(e.target.value)}
+                  placeholder={input.placeholder}
+                />
+              ))}
             </div>
             <div className="button-container">
               <button type="submit" className="login-submit-button">
