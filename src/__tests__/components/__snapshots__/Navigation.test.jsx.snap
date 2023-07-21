@@ -1,0 +1,72 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Navigation > should render as expected 1`] = `
+<div>
+  <nav
+    class="navbar"
+  >
+    <div
+      class="nav-container"
+    >
+      <div
+        class="nav-group"
+      >
+        <div
+          class="nav-header flex-md-column"
+        >
+          <button
+            class="navbar-toggler-button"
+            type="button"
+          >
+            <span
+              class="navbar-toggler-icon"
+            />
+          </button>
+          <a
+            class="nav-logo d-flex justify-content-center"
+            href="/"
+          >
+            <img
+              alt="logo"
+              class="logo"
+              src="/src/assets/logo.webp"
+            />
+          </a>
+        </div>
+        <div
+          class="collapse navbar-collapse desktop-show"
+        >
+          <ul
+            class="navbar-nav"
+          >
+            <li>
+              <a
+                aria-current="page"
+                class="nav-link active"
+                href="/"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="/login"
+              >
+                Login
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="credits"
+      >
+        <small>
+           © 2023 - All rights reserved
+        </small>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
