@@ -4,6 +4,7 @@ import '../styles/carousel-item.scss';
 import formatDate from '../utils/formatDate';
 import formatToCurrency from '../utils/formatToCurrency';
 import ReservationDetails from './ReservationDetails';
+import Videogame from './Videogame';
 
 const Reservation = ({ data }) => {
   const {
@@ -37,12 +38,7 @@ Reservation.propTypes = {
     days: PropTypes.number,
     total_price: PropTypes.string,
     created_at: PropTypes.string,
-    videogame: PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      photo: PropTypes.string,
-      description: PropTypes.string,
-    }),
+    videogame: PropTypes.oneOfType(Videogame.propTypes.data),
   }).isRequired,
 };
 
