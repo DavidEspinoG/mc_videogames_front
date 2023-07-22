@@ -27,7 +27,7 @@ export const signin = createAsyncThunk(
     const response = await axios.post(url, data).catch((error) => error);
 
     if (response.status === 200) {
-      return [response.data.user, response.headers.authorization];
+      return [response.data, response.headers.authorization];
     }
 
     return rejectWithValue(response.response.data.message);
@@ -92,15 +92,15 @@ const userSlice = createSlice({
       const [userData, jwt] = payload;
       state.user = userData.user;
       state.jwt = jwt;
-      state.loginLoading = false;
-      state.loginError = null;
+      state.signinLoading = false;
+      state.signinError = null;
     },
     [signin.pending]: (state) => {
-      state.loginLoading = true;
+      state.signinLoading = true;
     },
     [signin.rejected]: (state, { payload }) => {
-      state.loginLoading = false;
-      state.loginError = payload;
+      state.signinLoading = false;
+      state.signinError = payload;
     },
   },
 });
