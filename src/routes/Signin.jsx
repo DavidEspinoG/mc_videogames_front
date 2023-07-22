@@ -7,6 +7,11 @@ const SignIn = () => {
           <hr className="green-line"/>
           <form className="login-inputs">
             <input 
+              placeholder="Name"
+              className="input"
+              type="text"
+            />
+            <input 
               placeholder="E-mail"
               className="input"
               type="text"
@@ -21,7 +26,17 @@ const SignIn = () => {
               className="input"
               type="text"
             />
-            <button className="login-submit-button">Submit</button>
+            <input 
+              placeholder="Address"
+              className="input"
+              type="text"
+            />
+            <button
+              type="submit" 
+              className="login-submit-button"
+            >
+                Submit
+            </button>
           </form>
         </div>
       </div>
