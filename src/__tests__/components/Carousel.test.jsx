@@ -1,12 +1,12 @@
 import userEvent from '@testing-library/user-event';
-import { vitest } from 'vitest';
+import { vi } from 'vitest';
 import Carousel from '../../components/Carousel';
 import mockReservations from '../../__mocks__/mockReservations';
 import mockVideogames from '../../__mocks__/mockVideogames';
 import renderWithProviders from '../test-utils';
 
 describe('Carousel', () => {
-  const setPage = vitest.fn();
+  const setPage = vi.fn();
   const disabledLeft = false;
   const disabledRight = false;
   const deleteButton = true;

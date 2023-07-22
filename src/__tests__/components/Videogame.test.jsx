@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
+import axios from 'axios';
 import Videogame from '../../components/Videogame';
 import mockVideogames, { mockVideogame } from '../../__mocks__/mockVideogames';
-import axios from '../setup';
 import renderWithProviders from '../test-utils';
 
 describe('Videogame', () => {

@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
+import axios from 'axios';
 import Navigation from '../../components/navigation';
-import axios from '../setup';
 import renderWithProviders from '../test-utils';
 
 describe('Navigation', () => {
