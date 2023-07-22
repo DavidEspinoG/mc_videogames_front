@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../styles/Signin.scss';
 import { BiArrowBack } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 import { signin } from '../redux/slices/userSlice';
+import { getVideogames } from '../redux/slices/videogamesSlice';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [address, setAddress] = useState('');
+  const videogames = useSelector((state) => state.videogames.all);
   const signinLoading = useSelector((state) => state.user.signinLoading);
   const signinError = useSelector((state) => state.user.signinError);
   const dispatch = useDispatch();
@@ -25,7 +27,11 @@ const SignIn = () => {
       address,
     }));
   };
-
+  useEffect(() => {
+    if (!videogames) {
+      dispatch(getVideogames());
+    }
+  });
   return (
     <div className="signin-main-container">
       <div className="signin-header">
