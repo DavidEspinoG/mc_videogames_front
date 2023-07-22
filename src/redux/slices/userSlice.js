@@ -19,11 +19,20 @@ export const login = createAsyncThunk(
 
 export const signin = createAsyncThunk(
   'user/signin',
-  async ({ name, email, password, password_confirmation, address }, { rejectWithValue }) => {
+  async ({
+    name, email, password, passwordConfirmation, address,
+  }, { rejectWithValue }) => {
     const url = `${BASE_URL}/users`;
-    const data = { headers: { Accept: 'application/json' }, user: { 
-      name, email, password, password_confirmation, address 
-    }};
+    const data = {
+      headers: { Accept: 'application/json' },
+      user: {
+        name,
+        email,
+        password,
+        password_confirmation: passwordConfirmation,
+        address,
+      },
+    };
     const response = await axios.post(url, data).catch((error) => error);
 
     if (response.status === 200) {
