@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import '../styles/carousel-item.scss';
 import formatDate from '../utils/formatDate';
 import formatToCurrency from '../utils/formatToCurrency';
+import ReservationDetails from './ReservationDetails';
+import Videogame from './Videogame';
 
 const Reservation = ({ data }) => {
   const {
@@ -21,26 +23,10 @@ const Reservation = ({ data }) => {
         <h3 className="h6 fw-bolder text-uppercase mb-4">{name}</h3>
       </Link>
       <div className="text-muted small">
-        <p className="mb-0">
-          <span className="fw-bold">Starting date:</span>
-          {' '}
-          {formatDate(createdAt)}
-        </p>
-        <p className="mb-0">
-          <span className="fw-bold">Finishing date:</span>
-          {' '}
-          {formatDate(createdAt, days)}
-        </p>
-        <p className="mb-0">
-          <span className="fw-bold">Days:</span>
-          {' '}
-          {days}
-        </p>
-        <p className="mb-0">
-          <span className="fw-bold">Total price:</span>
-          {' '}
-          {formatToCurrency(totalPrice)}
-        </p>
+        <ReservationDetails label="Starting date" value={formatDate(createdAt)} />
+        <ReservationDetails label="Finishing date" value={formatDate(createdAt, days)} />
+        <ReservationDetails label="Days" value={days} />
+        <ReservationDetails label="Total price" value={formatToCurrency(totalPrice)} />
         <p className="d-webkit-box clamp-3">{description}</p>
       </div>
     </article>
@@ -52,12 +38,7 @@ Reservation.propTypes = {
     days: PropTypes.number,
     total_price: PropTypes.string,
     created_at: PropTypes.string,
-    videogame: PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      photo: PropTypes.string,
-      description: PropTypes.string,
-    }),
+    videogame: Videogame.propTypes.data,
   }).isRequired,
 };
 

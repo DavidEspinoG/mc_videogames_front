@@ -18,6 +18,18 @@ export const getReservations = createAsyncThunk(
   },
 );
 
+export const fetchReservation = async (selectedVideogameId, days, jwt) => {
+  const url = `${BASE_URL}/reservations`;
+  const body = { videogame_id: selectedVideogameId, days };
+  const headers = {
+    headers: {
+      Authorization: jwt,
+    },
+  };
+  const data = await axios.post(url, body, headers);
+  return data;
+};
+
 const reservationsSlice = createSlice({
   name: 'reservations',
   initialState: {

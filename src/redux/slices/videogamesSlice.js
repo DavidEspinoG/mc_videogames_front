@@ -23,6 +23,23 @@ export const getDetails = createAsyncThunk(
   },
 );
 
+export const createVideogame = async (name, url, description, price, jwt) => {
+  const apiUrl = `${BASE_URL}/videogames`;
+  const body = {
+    name,
+    photo: url,
+    description,
+    price_per_day: price,
+  };
+  const headers = {
+    headers: {
+      Authorization: jwt,
+    },
+  };
+  const res = await axios.post(apiUrl, body, headers);
+  return res;
+};
+
 export const deleteVideogame = createAsyncThunk(
   'videogames/delete',
   async (id, { getState, rejectWithValue }) => {

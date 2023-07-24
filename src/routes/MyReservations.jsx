@@ -13,7 +13,9 @@ const MyReservations = () => {
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const isLargeDesktop = useMediaQuery('(min-width: 1200px)');
   const [page, setPage] = useState(0);
+
   let itemsPerPage = 1;
+
   if (isLargeDesktop) {
     itemsPerPage = 3;
   } else if (isDesktop) {

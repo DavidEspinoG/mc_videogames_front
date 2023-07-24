@@ -1,11 +1,10 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Spinner from '../components/spinner';
-import BASE_URL from '../redux/constants';
+import { fetchReservation } from '../redux/slices/reservationsSlice';
 import { getVideogames } from '../redux/slices/videogamesSlice';
-import { selectReservationsError } from '../redux/store';
+import { selectJWT, selectReservationsError, selectVideogames } from '../redux/store';
 import '../styles/Login.scss';
 import '../styles/Reserve.scss';
 import getTomorrowDate from '../utils/getTomorrowDate';
@@ -13,8 +12,8 @@ import getTomorrowDate from '../utils/getTomorrowDate';
 const Reserve = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const videogames = useSelector((state) => state.videogames.all);
-  const jwt = useSelector((state) => state.user.jwt);
+  const videogames = useSelector(selectVideogames);
+  const jwt = useSelector(selectJWT);
   const error = useSelector(selectReservationsError);
   const [searchParams] = useSearchParams();
   const videogameId = searchParams.get('videogameId');
@@ -27,6 +26,26 @@ const Reserve = () => {
     }
   }, [dispatch, videogames]);
 
+  // Handlers
+  const handleDateChange = (e) => {
+    const now = new Date();
+    const userDate = new Date(e.target.value);
+    const difference = userDate.getTime() - now.getTime();
+    const differenceDays = Math.ceil(difference / (1000 * 3600 * 24));
+    setDays(differenceDays);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await fetchReservation(selectedVideogameId, days, jwt);
+    navigate('/myReservations');
+  };
+
+  const handleVideogameChange = (e) => {
+    setSelectedVideogameId(e.target.value);
+  };
+
+  // Render
   if (error) {
     return <h1 className="text-center">{error}</h1>;
   }
@@ -38,36 +57,6 @@ const Reserve = () => {
       </div>
     );
   }
-
-  const handleDateChange = (e) => {
-    const now = new Date();
-    const userDate = new Date(e.target.value);
-    const difference = userDate.getTime() - now.getTime();
-    const differenceDays = Math.ceil(difference / (1000 * 3600 * 24));
-    setDays(differenceDays);
-  };
-
-  const fetchReservation = async () => {
-    const url = `${BASE_URL}/reservations`;
-    const body = { videogame_id: selectedVideogameId, days };
-    const headers = {
-      headers: {
-        Authorization: jwt,
-      },
-    };
-    const data = await axios.post(url, body, headers);
-    return data;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await fetchReservation();
-    navigate('/myReservations');
-  };
-
-  const handleVideogameChange = (e) => {
-    setSelectedVideogameId(e.target.value);
-  };
 
   return (
     <div className="reserve-main-container">

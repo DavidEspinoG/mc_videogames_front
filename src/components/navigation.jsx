@@ -1,16 +1,25 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.webp';
 import { logout } from '../redux/slices/userSlice';
 import { selectUser } from '../redux/store';
 import '../styles/navigation.scss';
+import NavigationLink from './NavigationLink';
+
+const links = [
+  { label: 'Home', path: '/' },
+  { label: 'Reserve', path: '/reserve' },
+  { label: 'My reservations', path: '/myReservations' },
+  { label: 'Add', path: '/add' },
+  { label: 'Delete', path: '/delete' },
+  { label: 'Login', path: '/login' },
+];
 
 const Navigation = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const user = useSelector(selectUser);
-  const { admin: isAdmin } = user ?? {};
 
   const closeNavbar = () => {
     setOpen(false);
@@ -39,6 +48,7 @@ const Navigation = () => {
             >
               <span className="navbar-toggler-icon" />
             </button>
+
             {user && (
               <div className="user-name order-md-1">
                 <h3 className="welcome mb-0 fw-bolder">
@@ -48,6 +58,7 @@ const Navigation = () => {
                 </h3>
               </div>
             )}
+
             <Link className="nav-logo d-flex justify-content-center" to="/">
               <img className="logo" src={logo} alt="logo" />
             </Link>
@@ -57,55 +68,26 @@ const Navigation = () => {
             className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}
           >
             <ul className="navbar-nav">
-              <li>
-                <NavLink className="nav-link" to="/" end onClick={handleNavLinkClick}>
-                  Home
-                </NavLink>
-              </li>
+              {links.map((link) => (
+                <NavigationLink
+                  key={link.label}
+                  label={link.label}
+                  path={link.path}
+                  action={handleNavLinkClick}
+                />
+              ))}
+
               {user && (
-                <>
-                  <li>
-                    <NavLink className="nav-link" to="/reserve" onClick={handleNavLinkClick}>
-                      Reserve
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink className="nav-link" to="/myReservations" onClick={handleNavLinkClick}>
-                      My Reservations
-                    </NavLink>
-                  </li>
-                </>
-              )}
-              {isAdmin && (
-                <>
-                  <li>
-                    <NavLink className="nav-link" to="/add" onClick={handleNavLinkClick}>
-                      Add
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink className="nav-link" to="/delete" onClick={handleNavLinkClick}>
-                      Delete
-                    </NavLink>
-                  </li>
-                </>
-              )}
-              {user ? (
                 <li>
                   <button type="button" className="nav-link logout-button" onClick={handleLogout}>
                     Log out
                   </button>
                 </li>
-              ) : (
-                <li>
-                  <NavLink className="nav-link" to="/login">
-                    Login
-                  </NavLink>
-                </li>
               )}
             </ul>
           </div>
         </div>
+
         <div className="credits">
           <small> &copy; 2023 - All rights reserved</small>
         </div>
