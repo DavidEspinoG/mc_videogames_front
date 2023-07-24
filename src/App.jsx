@@ -14,6 +14,7 @@ import Login from './routes/Login';
 import MyReservations from './routes/MyReservations';
 import NotFound from './routes/NotFound';
 import Reserve from './routes/Reserve';
+import SignIn from './routes/Signin';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -33,13 +34,14 @@ const App = () => {
 
   return (
     <>
-      {location.pathname !== '/login' && <Navigation />}
+      {location.pathname !== '/login' && location.pathname !== '/signin' && <Navigation />}
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/details/:id" element={<Details />} />
           <Route element={<ProtectedRoute isAllowed={!user} />}>
             <Route path="/login" element={<Login />} />
+            <Route path="/signin" element={<SignIn />} />
           </Route>
           <Route element={<ProtectedRoute isAllowed={Boolean(user)} />}>
             <Route path="/reserve" element={<Reserve />} />

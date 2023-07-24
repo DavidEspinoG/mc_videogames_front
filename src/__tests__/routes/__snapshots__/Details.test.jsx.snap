@@ -1,0 +1,127 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Details > should render as expected 1`] = `
+<div>
+  <section
+    class="details-section"
+  >
+    <img
+      alt="Street Fighter"
+      class="thumbnail"
+      src="https://mms.businesswire.com/media/20230122005013/en/1692292/5/p1-1.jpg"
+    />
+    <div
+      class="details"
+    >
+      <h2
+        class="title"
+      >
+        Street Fighter
+      </h2>
+      <p
+        class="description"
+      >
+        Street Fighter is a 1987 arcade game developed by Capcom. It is the first competitive fighting game produced by the company and the inaugural game in the Street Fighter series.
+      </p>
+      <table
+        class="pricing-table"
+      >
+        <tbody>
+          <tr>
+            <td>
+              Price per day:
+               
+              <span>
+                $
+                20.0
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Price per week:
+               
+              <span>
+                $
+                140
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Price per month:
+               
+              <span>
+                $
+                600
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a
+        class="discover-button"
+        href="/"
+      >
+        Discover more videogames
+         
+        <span>
+          &gt;
+        </span>
+      </a>
+      <div
+        class="image-container"
+      >
+        <svg
+          class="icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20.937 7.53C19.227 4.119 15.803 2 12 2 6.486 2 2 6.486 2 12s4.486 10 10 10c3.803 0 7.227-2.119 8.937-5.53a1 1 0 0 0-.397-1.316L15.017 12l5.522-3.153c.461-.264.636-.842.398-1.317zm-8.433 3.602a.999.999 0 0 0 0 1.736l6.173 3.525A7.949 7.949 0 0 1 12 20c-4.411 0-8-3.589-8-8s3.589-8 8-8a7.95 7.95 0 0 1 6.677 3.606l-6.173 3.526z"
+          />
+          <circle
+            cx="11.5"
+            cy="7.5"
+            r="1.5"
+          />
+        </svg>
+        <img
+          alt="color wheel"
+          class="color-wheel"
+          src="/src/assets/color_wheel.png"
+        />
+      </div>
+      <a
+        class="reserve-button"
+        href="/reserve?videogameId=1"
+      >
+        Reserve
+        <svg
+          class="icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
+          />
+          <path
+            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+          />
+        </svg>
+      </a>
+    </div>
+  </section>
+</div>
+`;

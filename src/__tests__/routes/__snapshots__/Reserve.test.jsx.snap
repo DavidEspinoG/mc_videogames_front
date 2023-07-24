@@ -1,0 +1,67 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Reserve > should render as expected 1`] = `
+<div>
+  <div
+    class="reserve-main-container"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="login-form"
+      >
+        <h3
+          class="subtitle text-center"
+        >
+          RESERVE A VIDEOGAME
+        </h3>
+        <hr
+          class="green-line"
+        />
+        <p>
+          Select the videogame you want to rent and the date you want to return it
+        </p>
+        <form>
+          <div
+            class="login-inputs"
+          >
+            <select
+              class="reserve-select"
+              min="1"
+            >
+              <option
+                value="0"
+              >
+                -- Select a videogame --
+              </option>
+              <option
+                value="95"
+              >
+                Street Fighter
+              </option>
+              <option
+                value="94"
+              >
+                Mortal Kombat
+              </option>
+            </select>
+            <input
+              class="input"
+              min="2023-07-22"
+              required=""
+              type="date"
+            />
+            <button
+              class="login-submit-button"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -20,6 +20,7 @@ const Carousel = ({
     <section id="carousel" className="row mx-0 g-0">
       <div className="col-auto d-flex flex-column justify-content-center">
         <button
+          data-testid="btn-left"
           type="button"
           className="btn-carousel btn-left p-3"
           onClick={handleLeftClick}
@@ -45,6 +46,7 @@ const Carousel = ({
       </div>
       <div className="col-auto d-flex flex-column justify-content-center">
         <button
+          data-testid="btn-right"
           type="button"
           className="btn-carousel btn-right p-3"
           onClick={handleRightClick}
