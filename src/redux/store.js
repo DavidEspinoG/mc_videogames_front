@@ -3,12 +3,15 @@ import reservationsSliceReducer from './slices/reservationsSlice';
 import userSliceReducer from './slices/userSlice';
 import videogamesSliceReducer from './slices/videogamesSlice';
 
-const store = configureStore({
-  reducer: {
-    videogames: videogamesSliceReducer,
-    user: userSliceReducer,
-    reservations: reservationsSliceReducer,
-  },
+const reducer = {
+  videogames: videogamesSliceReducer,
+  user: userSliceReducer,
+  reservations: reservationsSliceReducer,
+};
+
+const setupStore = (preloadedState) => configureStore({
+  preloadedState,
+  reducer,
 });
 
 export const selectJWT = (state) => state.user.jwt;
@@ -25,4 +28,4 @@ export const selectVideogameDeleteError = (state) => state.videogames.deleteErro
 export const selectReservations = (state) => state.reservations.reservations;
 export const selectReservationsError = (state) => state.reservations.error;
 
-export default store;
+export default setupStore;

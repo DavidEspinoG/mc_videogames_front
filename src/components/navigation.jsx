@@ -31,23 +31,31 @@ const Navigation = () => {
       <div className="nav-container">
         <div className="nav-group">
           <div className="nav-header flex-md-column">
-            <button className="navbar-toggler-button" type="button" onClick={() => setOpen(!open)}>
+            <button
+              data-testid="navbar-toggler-button"
+              className="navbar-toggler-button"
+              type="button"
+              onClick={() => setOpen(!open)}
+            >
               <span className="navbar-toggler-icon" />
             </button>
             {user && (
-            <div className="user-name order-md-1">
-              <h3 className="welcome mb-0 fw-bolder">
-                Welcome,
-                {' '}
-                {user.name}
-              </h3>
-            </div>
+              <div className="user-name order-md-1">
+                <h3 className="welcome mb-0 fw-bolder">
+                  Welcome,
+                  {' '}
+                  {user.name}
+                </h3>
+              </div>
             )}
             <Link className="nav-logo d-flex justify-content-center" to="/">
               <img className="logo" src={logo} alt="logo" />
             </Link>
           </div>
-          <div className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}>
+          <div
+            data-testid="navbar-collapse"
+            className={`collapse navbar-collapse ${open ? 'show' : 'desktop-show'}`}
+          >
             <ul className="navbar-nav">
               <li>
                 <NavLink className="nav-link" to="/" end onClick={handleNavLinkClick}>
