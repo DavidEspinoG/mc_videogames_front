@@ -50,6 +50,8 @@ OPTIONAL SECTIONS:
 
 **mc_videgames_front** is the front-end implementation of the final capstone group from Microverse. It is an application that let the user rent a videogame. It also let the admins create new videogames or delete them. 
 
+**We are a five people team** 
+
 ## 🛠 Built With <a id="built-with"></a>
 - `React`
 - `React-router-dom`
@@ -87,6 +89,11 @@ OPTIONAL SECTIONS:
 <!-- KANBAN BOARD -->
 
 ## ⚙️ Kanban Board <a id="kanban-board"></a>
+
+**We are a five people team**
+
+- Kanban board (initial state)
+<img src="./kanban.png">
 
 - [Kanban board Link](https://github.com/users/DavidEspinoG/projects/5/views/1)
 
