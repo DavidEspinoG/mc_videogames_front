@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { login } from '../redux/slices/userSlice';
 import { selectUserLoginError, selectUserLoginLoading } from '../redux/store';
 import '../styles/Login.scss';
@@ -56,6 +56,10 @@ const Login = () => {
             *
           </small>
           )}
+          <div>
+            <span>Don&apos;t have an account? </span>
+            <Link to="/signin" className="underline">Create an account</Link>
+          </div>
         </div>
       </div>
     </div>
