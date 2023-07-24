@@ -17,6 +17,32 @@ export const login = createAsyncThunk(
   },
 );
 
+export const signin = createAsyncThunk(
+  'user/signin',
+  async ({
+    name, email, password, passwordConfirmation, address,
+  }, { rejectWithValue }) => {
+    const url = `${BASE_URL}/users`;
+    const data = {
+      headers: { Accept: 'application/json' },
+      user: {
+        name,
+        email,
+        password,
+        password_confirmation: passwordConfirmation,
+        address,
+      },
+    };
+    const response = await axios.post(url, data).catch((error) => error);
+
+    if (response.status === 200) {
+      return [response.data, response.headers.authorization];
+    }
+
+    return rejectWithValue(response.response.data.message);
+  },
+);
+
 export const logout = createAsyncThunk('user/logout', async (_, { getState }) => {
   const state = getState();
   const url = `${BASE_URL}/users/sign_out`;
@@ -69,6 +95,21 @@ const userSlice = createSlice({
     },
     [logout.rejected]: (state, { payload }) => {
       state.logoutError = payload;
+    },
+    [signin.fulfilled]: (state, { payload }) => {
+      localStorage.setItem('user', JSON.stringify(payload));
+      const [userData, jwt] = payload;
+      state.user = userData.user;
+      state.jwt = jwt;
+      state.signinLoading = false;
+      state.signinError = null;
+    },
+    [signin.pending]: (state) => {
+      state.signinLoading = true;
+    },
+    [signin.rejected]: (state, { payload }) => {
+      state.signinLoading = false;
+      state.signinError = payload;
     },
   },
 });
