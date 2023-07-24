@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import LoginInputs from '../components/LoginInputs';
 import { createVideogame } from '../redux/slices/videogamesSlice';
 import { selectJWT } from '../redux/store';
 import '../styles/AddVideogame.scss';
@@ -25,7 +24,7 @@ const AddVideogame = () => {
       id: 2, placeholder: 'Description', type: 'text', value: description, action: setDescription,
     },
     {
-      id: 3, placeholder: 'Price per day', type: 'number', value: price, action: setPrice,
+      id: 3, placeholder: 'Price per day', type: 'number', value: price, action: setPrice, min: 0,
     },
   ];
 
@@ -45,12 +44,15 @@ const AddVideogame = () => {
           <form onSubmit={handleSubmit}>
             <div className="login-inputs">
               {inputs.map((input) => (
-                <LoginInputs
+                <input
                   key={input.id}
                   value={input.value}
                   type={input.type}
-                  action={(e) => input.action(e.target.value)}
+                  min={input.min}
+                  onChange={(e) => input.action(e.target.value)}
                   placeholder={input.placeholder}
+                  className="input"
+                  required
                 />
               ))}
             </div>

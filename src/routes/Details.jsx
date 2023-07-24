@@ -9,17 +9,17 @@ import { getDetails } from '../redux/slices/videogamesSlice';
 import { selectVideogameDetails, selectVideogameDetailsError } from '../redux/store';
 import '../styles/details.scss';
 
+const pricingTable = [
+  { text: 'Price per day', multiplier: 1 },
+  { text: 'Price per week', multiplier: 7 },
+  { text: 'Price per month', multiplier: 30 },
+];
+
 const Details = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const videogameDetails = useSelector(selectVideogameDetails);
   const error = useSelector(selectVideogameDetailsError);
-
-  const pricingTable = [
-    { text: 'Price per day', multiplier: 1 },
-    { text: 'Price per week', multiplier: 7 },
-    { text: 'Price per month', multiplier: 30 },
-  ];
 
   useEffect(() => {
     dispatch(getDetails(id));

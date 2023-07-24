@@ -7,19 +7,19 @@ import { selectUser } from '../redux/store';
 import '../styles/navigation.scss';
 import NavigationLink from './NavigationLink';
 
+const links = [
+  { label: 'Home', path: '/' },
+  { label: 'Reserve', path: '/reserve' },
+  { label: 'My reservations', path: '/myReservations' },
+  { label: 'Add', path: '/add' },
+  { label: 'Delete', path: '/delete' },
+  { label: 'Login', path: '/login' },
+];
+
 const Navigation = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const user = useSelector(selectUser);
-
-  const links = [
-    { label: 'Home', path: '/' },
-    { label: 'Reserve', path: '/reserve' },
-    { label: 'My reservations', path: '/myReservations' },
-    { label: 'Add', path: '/add' },
-    { label: 'Delete', path: '/delete' },
-    { label: 'Login', path: '/login' },
-  ];
 
   const closeNavbar = () => {
     setOpen(false);
