@@ -37,7 +37,7 @@ OPTIONAL SECTIONS:
   - [Setup](#setup)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#tests)
+  - [Run tests](#test)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -137,9 +137,11 @@ To start the server, execute the following command:
 
 `npm run dev`
 
-### Run test
+### Run test <>
 
-You can run the test with the following command
+<div id="test">
+  You can run the test with the following command
+</div>
 
 `npm run test`
 
