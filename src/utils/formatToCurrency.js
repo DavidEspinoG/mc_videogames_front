@@ -1,5 +1,5 @@
 const formatToCurrency = (value, currency = 'USD') => {
-  const formatter = new Intl.NumberFormat(undefined, {
+  const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency,
     maximumSignificantDigits: 2,
