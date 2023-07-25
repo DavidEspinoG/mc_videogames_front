@@ -1,0 +1,81 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Reservation > should render as expected 1`] = `
+<div>
+  <article
+    class="col"
+  >
+    <a
+      href="/details/68"
+    >
+      <div
+        class="vh-25 mb-4"
+      >
+        <img
+          alt="Street Fighter"
+          class="h-100 img-fluid rounded aspect-ratio-1"
+          src="https://mms.businesswire.com/media/20230122005013/en/1692292/5/p1-1.jpg"
+        />
+      </div>
+      <h3
+        class="h6 fw-bolder text-uppercase mb-4"
+      >
+        Street Fighter
+      </h3>
+    </a>
+    <div
+      class="text-muted small"
+    >
+      <p
+        class="mb-0"
+      >
+        <span
+          class="fw-bold"
+        >
+          Starting date:
+        </span>
+         
+        Thursday, July 20, 2023
+      </p>
+      <p
+        class="mb-0"
+      >
+        <span
+          class="fw-bold"
+        >
+          Finishing date:
+        </span>
+         
+        Monday, July 31, 2023
+      </p>
+      <p
+        class="mb-0"
+      >
+        <span
+          class="fw-bold"
+        >
+          Days:
+        </span>
+         
+        11
+      </p>
+      <p
+        class="mb-0"
+      >
+        <span
+          class="fw-bold"
+        >
+          Total price:
+        </span>
+         
+        $220
+      </p>
+      <p
+        class="d-webkit-box clamp-3"
+      >
+        Street Fighter is a 1987 arcade game developed by Capcom. It is the first competitive fighting game produced by the company and the inaugural game in the Street Fighter series.
+      </p>
+    </div>
+  </article>
+</div>
+`;

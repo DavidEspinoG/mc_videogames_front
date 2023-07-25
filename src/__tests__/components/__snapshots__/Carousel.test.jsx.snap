@@ -1,0 +1,357 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Carousel > should render as expected if items are reservations 1`] = `
+<div>
+  <section
+    class="row mx-0 g-0"
+    id="carousel"
+  >
+    <div
+      class="col-auto d-flex flex-column justify-content-center"
+    >
+      <button
+        class="btn-carousel btn-left p-3"
+        data-testid="btn-left"
+        type="button"
+      >
+        <svg
+          class="fs-5"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 16 16"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="col row mx-0 row-cols-1 row-cols-md-2 row-cols-xl-3"
+    >
+      <article
+        class="col"
+      >
+        <a
+          href="/details/68"
+        >
+          <div
+            class="vh-25 mb-4"
+          >
+            <img
+              alt="Street Fighter"
+              class="h-100 img-fluid rounded aspect-ratio-1"
+              src="https://mms.businesswire.com/media/20230122005013/en/1692292/5/p1-1.jpg"
+            />
+          </div>
+          <h3
+            class="h6 fw-bolder text-uppercase mb-4"
+          >
+            Street Fighter
+          </h3>
+        </a>
+        <div
+          class="text-muted small"
+        >
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Starting date:
+            </span>
+             
+            Thursday, July 20, 2023
+          </p>
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Finishing date:
+            </span>
+             
+            Monday, July 31, 2023
+          </p>
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Days:
+            </span>
+             
+            11
+          </p>
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Total price:
+            </span>
+             
+            $220
+          </p>
+          <p
+            class="d-webkit-box clamp-3"
+          >
+            Street Fighter is a 1987 arcade game developed by Capcom. It is the first competitive fighting game produced by the company and the inaugural game in the Street Fighter series.
+          </p>
+        </div>
+      </article>
+      <article
+        class="col"
+      >
+        <a
+          href="/details/62"
+        >
+          <div
+            class="vh-25 mb-4"
+          >
+            <img
+              alt="Tetris"
+              class="h-100 img-fluid rounded aspect-ratio-1"
+              src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Tetris_NES_cover_art.jpg/220px-Tetris_NES_cover_art.jpg"
+            />
+          </div>
+          <h3
+            class="h6 fw-bolder text-uppercase mb-4"
+          >
+            Tetris
+          </h3>
+        </a>
+        <div
+          class="text-muted small"
+        >
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Starting date:
+            </span>
+             
+            Thursday, July 20, 2023
+          </p>
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Finishing date:
+            </span>
+             
+            Saturday, July 22, 2023
+          </p>
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Days:
+            </span>
+             
+            2
+          </p>
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Total price:
+            </span>
+             
+            $10
+          </p>
+          <p
+            class="d-webkit-box clamp-3"
+          >
+            Tetris is a puzzle video game created in 1984 by Alexey Pajitnov, a Soviet software engineer.
+          </p>
+        </div>
+      </article>
+    </div>
+    <div
+      class="col-auto d-flex flex-column justify-content-center"
+    >
+      <button
+        class="btn-carousel btn-right p-3"
+        data-testid="btn-right"
+        type="button"
+      >
+        <svg
+          class="fs-5"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 16 16"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"
+          />
+        </svg>
+      </button>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Carousel > should render as expected if items are videogames 1`] = `
+<div>
+  <section
+    class="row mx-0 g-0"
+    id="carousel"
+  >
+    <div
+      class="col-auto d-flex flex-column justify-content-center"
+    >
+      <button
+        class="btn-carousel btn-left p-3"
+        data-testid="btn-left"
+        type="button"
+      >
+        <svg
+          class="fs-5"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 16 16"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="col row mx-0 row-cols-1 row-cols-md-2 row-cols-xl-3"
+    >
+      <article
+        class="col h-100 d-flex flex-column"
+      >
+        <a
+          href="/details/95"
+        >
+          <div
+            class="vh-25 mb-4"
+          >
+            <img
+              alt="Street Fighter"
+              class="h-100 img-fluid rounded aspect-ratio-1"
+              src="https://mms.businesswire.com/media/20230122005013/en/1692292/5/p1-1.jpg"
+            />
+          </div>
+          <h3
+            class="h6 fw-bolder text-uppercase mb-4"
+          >
+            Street Fighter
+          </h3>
+        </a>
+        <div
+          class="text-muted small"
+        >
+          <p
+            class="d-webkit-box clamp-3"
+          >
+            Street Fighter is a 1987 arcade game developed by Capcom. It is the first competitive fighting game produced by the company and the inaugural game in the Street Fighter series.
+          </p>
+        </div>
+        <div
+          class="mt-auto"
+        >
+          <button
+            class="btn-delete"
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </article>
+      <article
+        class="col h-100 d-flex flex-column"
+      >
+        <a
+          href="/details/94"
+        >
+          <div
+            class="vh-25 mb-4"
+          >
+            <img
+              alt="Mortal Kombat"
+              class="h-100 img-fluid rounded aspect-ratio-1"
+              src="https://thesource.com/wp-content/uploads/2017/10/862771.jpg"
+            />
+          </div>
+          <h3
+            class="h6 fw-bolder text-uppercase mb-4"
+          >
+            Mortal Kombat
+          </h3>
+        </a>
+        <div
+          class="text-muted small"
+        >
+          <p
+            class="d-webkit-box clamp-3"
+          >
+            Mortal Kombat is an American media franchise centered on a series of video games, originally developed by Midway Games in 1992.
+          </p>
+        </div>
+        <div
+          class="mt-auto"
+        >
+          <button
+            class="btn-delete"
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </article>
+    </div>
+    <div
+      class="col-auto d-flex flex-column justify-content-center"
+    >
+      <button
+        class="btn-carousel btn-right p-3"
+        data-testid="btn-right"
+        type="button"
+      >
+        <svg
+          class="fs-5"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 16 16"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"
+          />
+        </svg>
+      </button>
+    </div>
+  </section>
+</div>
+`;

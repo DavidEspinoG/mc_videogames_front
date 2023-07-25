@@ -1,0 +1,38 @@
+.signin-main-container {
+  background-image: url('../assets/green_background.png');
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  font-family: var(--main-font);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  position: relative;
+}
+
+.signin-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding-top: 10px;
+}
+
+.line-center {
+  display: flex;
+  justify-content: center;
+}
+
+.signin-header {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+}
+
+@media (min-width: 768px) {
+  .signin-inputs {
+    flex-direction: row;
+    justify-content: center;
+  }
+}

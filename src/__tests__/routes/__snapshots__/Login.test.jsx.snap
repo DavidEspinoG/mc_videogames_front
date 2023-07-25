@@ -1,0 +1,77 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Login > should render as expected 1`] = `
+<div>
+  <div
+    class="login-main-container"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="login-header"
+      >
+        <svg
+          class="back-icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"
+          />
+        </svg>
+      </div>
+      <div
+        class="login-form"
+      >
+        <h3
+          class="subtitle text-center"
+        >
+          LOGIN
+        </h3>
+        <hr
+          class="green-line"
+        />
+        <form
+          class="login-inputs"
+        >
+          <input
+            class="input"
+            placeholder="Email"
+            type="text"
+            value=""
+          />
+          <input
+            class="input"
+            placeholder="Password"
+            type="password"
+            value=""
+          />
+          <button
+            class="login-submit-button"
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+        <div>
+          <span>
+            Don't have an account? 
+          </span>
+          <a
+            class="underline"
+            href="/signin"
+          >
+            Create an account
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

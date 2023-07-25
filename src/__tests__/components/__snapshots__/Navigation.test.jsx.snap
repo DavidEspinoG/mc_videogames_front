@@ -1,0 +1,290 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Navigation > should render as expected when there is a logged in admin 1`] = `
+<div>
+  <nav
+    class="navbar"
+  >
+    <div
+      class="nav-container"
+    >
+      <div
+        class="nav-group"
+      >
+        <div
+          class="nav-header flex-md-column"
+        >
+          <button
+            class="navbar-toggler-button"
+            data-testid="navbar-toggler-button"
+            type="button"
+          >
+            <span
+              class="navbar-toggler-icon"
+            />
+          </button>
+          <div
+            class="user-name order-md-1"
+          >
+            <h3
+              class="welcome mb-0 fw-bolder"
+            >
+              Welcome,
+               
+              admin name
+            </h3>
+          </div>
+          <a
+            class="nav-logo d-flex justify-content-center"
+            href="/"
+          >
+            <img
+              alt="logo"
+              class="logo"
+              src="/src/assets/logo.webp"
+            />
+          </a>
+        </div>
+        <div
+          class="collapse navbar-collapse desktop-show"
+          data-testid="navbar-collapse"
+        >
+          <ul
+            class="navbar-nav"
+          >
+            <li>
+              <a
+                aria-current="page"
+                class="nav-link active"
+                href="/"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="/reserve"
+              >
+                Reserve
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="/myReservations"
+              >
+                My reservations
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="/add"
+              >
+                Add
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="/delete"
+              >
+                Delete
+              </a>
+            </li>
+            <li>
+              <button
+                class="nav-link logout-button"
+                type="button"
+              >
+                Log out
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="credits"
+      >
+        <small>
+           © 2023 - All rights reserved
+        </small>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`Navigation > should render as expected when there is a logged in user 1`] = `
+<div>
+  <nav
+    class="navbar"
+  >
+    <div
+      class="nav-container"
+    >
+      <div
+        class="nav-group"
+      >
+        <div
+          class="nav-header flex-md-column"
+        >
+          <button
+            class="navbar-toggler-button"
+            data-testid="navbar-toggler-button"
+            type="button"
+          >
+            <span
+              class="navbar-toggler-icon"
+            />
+          </button>
+          <div
+            class="user-name order-md-1"
+          >
+            <h3
+              class="welcome mb-0 fw-bolder"
+            >
+              Welcome,
+               
+              user name
+            </h3>
+          </div>
+          <a
+            class="nav-logo d-flex justify-content-center"
+            href="/"
+          >
+            <img
+              alt="logo"
+              class="logo"
+              src="/src/assets/logo.webp"
+            />
+          </a>
+        </div>
+        <div
+          class="collapse navbar-collapse desktop-show"
+          data-testid="navbar-collapse"
+        >
+          <ul
+            class="navbar-nav"
+          >
+            <li>
+              <a
+                aria-current="page"
+                class="nav-link active"
+                href="/"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="/reserve"
+              >
+                Reserve
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="/myReservations"
+              >
+                My reservations
+              </a>
+            </li>
+            <li>
+              <button
+                class="nav-link logout-button"
+                type="button"
+              >
+                Log out
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="credits"
+      >
+        <small>
+           © 2023 - All rights reserved
+        </small>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`Navigation > should render as expected when there's no logged in user 1`] = `
+<div>
+  <nav
+    class="navbar"
+  >
+    <div
+      class="nav-container"
+    >
+      <div
+        class="nav-group"
+      >
+        <div
+          class="nav-header flex-md-column"
+        >
+          <button
+            class="navbar-toggler-button"
+            data-testid="navbar-toggler-button"
+            type="button"
+          >
+            <span
+              class="navbar-toggler-icon"
+            />
+          </button>
+          <a
+            class="nav-logo d-flex justify-content-center"
+            href="/"
+          >
+            <img
+              alt="logo"
+              class="logo"
+              src="/src/assets/logo.webp"
+            />
+          </a>
+        </div>
+        <div
+          class="collapse navbar-collapse desktop-show"
+          data-testid="navbar-collapse"
+        >
+          <ul
+            class="navbar-nav"
+          >
+            <li>
+              <a
+                aria-current="page"
+                class="nav-link active"
+                href="/"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="/login"
+              >
+                Login
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="credits"
+      >
+        <small>
+           © 2023 - All rights reserved
+        </small>
+      </div>
+    </div>
+  </nav>
+</div>
+`;

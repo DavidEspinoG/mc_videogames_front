@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Tsukimi+Rounded:wght@700&display=swap');
+
+:root {
+  --green: #97bf0f;
+  --gray: #f1f1f1;
+  --yellow: #ffb400;
+  --dark-gray: #252525;
+  --cyan: #10bbb5;
+  --main-font: 'Lato', sans-serif;
+  --title-font: 'Tsukimi Rounded', sans-serif;
+}
+
+// Mobile breakpoint: 575px;
+// Medium breakpoint: 768px;
+// Desktop breakpoint: 1200px;
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: var(--main-font);
+}
+
+.main {
+  flex: 1;
+}
+
+body {
+  font-family: var(--main-font);
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+@media (min-width: 768px) {
+  #root {
+    flex-direction: row;
+  }
+}

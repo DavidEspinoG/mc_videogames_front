@@ -1,0 +1,74 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AddVideogame > should render as expected 1`] = `
+<div>
+  <div
+    class="reserve-main-container"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="login-form"
+      >
+        <h3
+          class="subtitle text-center"
+        >
+          ADD A VIDEOGAME
+        </h3>
+        <hr
+          class="green-line"
+        />
+        <p>
+          Add a videogame available for rent
+        </p>
+        <form>
+          <div
+            class="login-inputs"
+          >
+            <input
+              class="input"
+              placeholder="Name"
+              required=""
+              type="text"
+              value=""
+            />
+            <input
+              class="input"
+              placeholder="Image URL"
+              required=""
+              type="text"
+              value=""
+            />
+            <input
+              class="input"
+              placeholder="Description"
+              required=""
+              type="text"
+              value=""
+            />
+            <input
+              class="input"
+              min="0"
+              placeholder="Price per day"
+              required=""
+              type="number"
+              value="0"
+            />
+          </div>
+          <div
+            class="button-container"
+          >
+            <button
+              class="login-submit-button"
+              type="submit"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
