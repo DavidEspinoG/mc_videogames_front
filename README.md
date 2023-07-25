@@ -137,7 +137,7 @@ To start the server, execute the following command:
 
 `npm run dev`
 
-### Run test <>
+### Run test
 
 <div id="test">
   You can run the test with the following command
