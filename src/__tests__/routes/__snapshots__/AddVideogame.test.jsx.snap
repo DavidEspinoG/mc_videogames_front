@@ -35,7 +35,7 @@ exports[`AddVideogame > should render as expected 1`] = `
             />
             <input
               class="input"
-              placeholder="Image url"
+              placeholder="Image URL"
               required=""
               type="text"
               value=""

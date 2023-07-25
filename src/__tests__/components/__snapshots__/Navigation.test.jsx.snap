@@ -74,7 +74,7 @@ exports[`Navigation > should render as expected when there is a logged in admin 
                 class="nav-link"
                 href="/myReservations"
               >
-                My Reservations
+                My reservations
               </a>
             </li>
             <li>
@@ -190,7 +190,7 @@ exports[`Navigation > should render as expected when there is a logged in user 1
                 class="nav-link"
                 href="/myReservations"
               >
-                My Reservations
+                My reservations
               </a>
             </li>
             <li>
