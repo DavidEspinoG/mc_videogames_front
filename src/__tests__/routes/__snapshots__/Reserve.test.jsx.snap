@@ -48,7 +48,7 @@ exports[`Reserve > should render as expected 1`] = `
             </select>
             <input
               class="input"
-              min="2023-07-26"
+              min="2023-07-27"
               required=""
               type="date"
             />

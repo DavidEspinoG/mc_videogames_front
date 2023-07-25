@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const ReservationDetails = ({ label, value }) => (
   <p className="mb-0">
-    <span className="fw-bold">{label}</span>
+    <span className="fw-bold">{`${label}:`}</span>
     {' '}
     {value}
   </p>
