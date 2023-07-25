@@ -72,7 +72,7 @@ exports[`MyReservations > should render as expected 1`] = `
               <span
                 class="fw-bold"
               >
-                Starting date:
+                Starting date
               </span>
                
               Thursday, July 20, 2023
@@ -83,7 +83,7 @@ exports[`MyReservations > should render as expected 1`] = `
               <span
                 class="fw-bold"
               >
-                Finishing date:
+                Finishing date
               </span>
                
               Monday, July 31, 2023
@@ -94,7 +94,7 @@ exports[`MyReservations > should render as expected 1`] = `
               <span
                 class="fw-bold"
               >
-                Days:
+                Days
               </span>
                
               11
@@ -105,10 +105,10 @@ exports[`MyReservations > should render as expected 1`] = `
               <span
                 class="fw-bold"
               >
-                Total price:
+                Total price
               </span>
                
-              US$ 220
+              $220
             </p>
             <p
               class="d-webkit-box clamp-3"

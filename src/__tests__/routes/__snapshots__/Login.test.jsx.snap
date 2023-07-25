@@ -59,6 +59,17 @@ exports[`Login > should render as expected 1`] = `
             Submit
           </button>
         </form>
+        <div>
+          <span>
+            Don't have an account? 
+          </span>
+          <a
+            class="underline"
+            href="/signin"
+          >
+            Create an account
+          </a>
+        </div>
       </div>
     </div>
   </div>

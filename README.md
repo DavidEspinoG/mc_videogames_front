@@ -37,6 +37,7 @@ OPTIONAL SECTIONS:
   - [Setup](#setup)
   - [Install](#install)
   - [Usage](#usage)
+  - [Run tests](#tests)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -136,6 +137,11 @@ To start the server, execute the following command:
 
 `npm run dev`
 
+### Run test
+
+You can run the test with the following command
+
+`npm run test`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
